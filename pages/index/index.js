@@ -1,54 +1,184 @@
-//index.js
-//获取应用实例
-const app = getApp()
-
 Page({
   data: {
-    motto: 'Hello World',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    imgUrls: [
+      'http://39.102.35.36:8080/parkinglot/static/img/F1.jpg',
+      'http://39.102.35.36:8080/parkinglot/static/img/car.jpg',
+      "http://39.102.35.36:8080/parkinglot/static/img/lanbo.jpg"
+    ],
+    list: ['🎉“智能停车', '🎉Parkinglot上线', '敬请期待'],
+    indicatorDots: true,
+    autoplay: true,
+    interval: 5000,
+    interval2: 11000,
+    duration: 1000,
+    duration2: 2000,
+    windowHeight: wx.getSystemInfoSync().windowHeight,
+    windowWidth: wx.getSystemInfoSync().windowWidth,
+    btnSize: 0,
+    token: wx.getStorageSync('token'),
+    status: 2,
   },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
+  onLoad() {
+    console.log('999' + this.data.token);
+    var that = this;
+    this.setData({
+      btnSize: 0.8 * 0.32 * this.data.windowHeight,
     })
-  },
-  onLoad: function () {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
+    const token = wx.getStorageSync('token')
+    if (token == '') {
+      wx.navigateTo({
+        url: '../login/login',
       })
-    } else if (this.data.canIUse){
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
+    }
+    
+    wx.request({
+      url: 'http://localhost:8080/parkinglot/UserController/queryRole',
+      data: {
+        page: '1',
+        limit: '5'
+      },
+      method: 'GET',
+      success(res) {
+        console.log(res.data)
+        // 1代表未审核，0代表已审核
+        that.setData({
+          status: res.data.data
+        })
+        wx.setStorage({
+          key: "status",
+          data: that.data.status
+        })
+      },
+      fail(res) {
+        wx.setStorage({
+          key: 'status',
+          data: '2',
         })
       }
+    })
+  },
+  onShow() {
+    var that = this;
+    that.setData({
+      token: wx.getStorageSync('token')
+    })
+    wx.request({
+      url: 'https://www.zjzlnet.com/zjepeframeworks/zjepeframe_Common/getUserByToken',
+      data: {
+        userId: 'admin',
+        passWord: '0192023a7bbd73250516f069df18b500',
+        token: that.data.token
+      },
+      method: 'GET',
+      success(res) {
+        console.log(res.data.data)
+        // 1代表未审核，0代表已审核
+        that.setData({
+          status: res.data.data
+        })
+        wx.setStorage({
+          key: "status",
+          data: that.data.status
+        })
+      },
+      fail() {
+        wx.setStorage({
+          key: 'status',
+          data: '2',
+        })
+      }
+    })
+  },
+  onHide: function () {
+    this.setData({
+      status: 2
+    })
+  },
+  changeIndicatorDots: function (e) {
+    this.setData({
+      indicatorDots: !this.data.indicatorDots
+    })
+  },
+  changeAutoplay: function (e) {
+    this.setData({
+      autoplay: !this.data.autoplay
+    })
+  },
+  intervalChange: function (e) {
+    this.setData({
+      interval: e.detail.value
+    })
+  },
+  durationChange: function (e) {
+    this.setData({
+      duration: e.detail.value
+    })
+  },
+  toEntrance() {
+    if (this.data.status == 1 || this.data.status == 2) {
+      wx.showToast({
+        title: '未审核',
+        icon: 'loading',
+        duration: 2000,
+        mask: true,
+      })
     } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
+      wx.navigateTo({
+        url: '../entrance/entrance',
       })
     }
   },
-  getUserInfo: function(e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
+  toGuest() {
+    if (this.data.status == 1 || this.data.status == 2) {
+      wx.showToast({
+        title: '未审核',
+        icon: 'loading',
+        duration: 2000,
+        mask: true,
+      })
+    } else {
+      wx.navigateTo({
+        url: '../guest/guestdetail/guestdetail',
+      })
+    }
+  },
+  toGroup() {
+    if (this.data.status == 1 || this.data.status == 2) {
+      wx.showToast({
+        title: '未审核',
+        icon: 'loading',
+        duration: 2000,
+        mask: true,
+      })
+    } else {
+      wx.navigateTo({
+        url: '../group/group',
+      })
+    }
+  },
+  toPark() {
+    wx.navigateTo({
+      url: '../park/park',
+    })
+  },
+  toUser() {
+    wx.navigateTo({
+      url: '../user/user',
     })
   }
+  // test0(){
+  //   wx.navigateTo({
+  //     url: '../user/user',
+  //   })
+  // },
+  // test1(){
+  //   wx.navigateTo({
+  //     url: '../guest/guest',
+  //   })
+  // },
+  // test2() {
+  //   wx.navigateTo({
+  //     url: '../entrance/entrance',
+  //   })
+  // }
 })

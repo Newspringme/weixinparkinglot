@@ -1,29 +1,31 @@
 {
-	"description": "项目配置文件",
-	"packOptions": {
-		"ignore": []
-	},
+	"description": "项目配置文件。",
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"preloadBackgroundData": false,
 		"minified": true,
 		"newFeature": true,
-		"autoAudits": false,
 		"coverView": true,
+		"autoAudits": false,
 		"showShadowRootInWxmlPanel": true,
 		"scopeDataCheck": false,
-		"useCompilerModule": false
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		},
+		"useCompilerModule": false,
+		"userConfirmedUseCompilerModuleSwitch": false
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.0.4",
-	"appid": "wxa2bbbf29cfbdc8d5",
-	"projectname": "parkinglot",
-	"debugOptions": {
-		"hidedInDevtools": []
-	},
-	"isGameTourist": false,
+	"libVersion": "1.6.0",
+	"appid": "wx2aa8a02feb016451",
+	"projectname": "%E5%8D%8E%E4%BA%91%E6%99%BA%E6%85%A7%E5%9B%AD%E5%8C%BA",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
 	"condition": {
@@ -35,13 +37,106 @@
 			"current": -1,
 			"list": []
 		},
-		"game": {
-			"currentL": -1,
-			"list": []
-		},
 		"miniprogram": {
 			"current": -1,
-			"list": []
+			"list": [
+				{
+					"id": -1,
+					"name": "test",
+					"pathName": "pages/test/test",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "index",
+					"pathName": "pages/index/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "group",
+					"pathName": "pages/group/group",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "groupdetail",
+					"pathName": "pages/group/groupdetail/groupdetail",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "login",
+					"pathName": "pages/login/login",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "entrance",
+					"pathName": "pages/entrance/entrance",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "user",
+					"pathName": "pages/user/user",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "guestdetail",
+					"pathName": "pages/guest/guestdetail/guestdetail",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "park",
+					"pathName": "pages/park/park",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "guesthistory",
+					"pathName": "pages/guest/guesthistory/guesthistory",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "feedback",
+					"pathName": "pages/user/feedback/feedback",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "setting",
+					"pathName": "pages/user/setting/setting",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "password",
+					"pathName": "pages/user/setting/password/password",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "groupjoin",
+					"pathName": "pages/group/groupjoin/groupjoin",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "apply",
+					"pathName": "pages/group/apply/apply",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "creategroup",
+					"pathName": "pages/group/creategroup/creategroup",
+					"query": ""
+				}
+			]
 		}
 	}
 }
