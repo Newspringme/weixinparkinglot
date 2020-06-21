@@ -1,10 +1,6 @@
 Page({
   data: {
-    imgUrls: [
-      'http://39.102.35.36:8080/parkinglot/static/img/F1.jpg',
-      'http://39.102.35.36:8080/parkinglot/static/img/car.jpg',
-      "http://39.102.35.36:8080/parkinglot/static/img/lanbo.jpg"
-    ],
+    
     list: ['🎉“智能停车', '🎉Parkinglot上线', '敬请期待'],
     indicatorDots: true,
     autoplay: true,
@@ -32,21 +28,15 @@ Page({
     }
     
     wx.request({
-      url: 'http://localhost:8080/parkinglot/UserController/queryRole',
+      url: 'http://localhost:8080/parkinglot/queryImgUrl',
       data: {
-        page: '1',
-        limit: '5'
+      
       },
       method: 'GET',
       success(res) {
-        console.log(res.data)
         // 1代表未审核，0代表已审核
         that.setData({
-          status: res.data.data
-        })
-        wx.setStorage({
-          key: "status",
-          data: that.data.status
+          imgUrls: res.data
         })
       },
       fail(res) {
@@ -165,7 +155,17 @@ Page({
     wx.navigateTo({
       url: '../user/user',
     })
-  }
+  },
+   phoneInput(e) {
+    this.setData({
+      phoneNo: e.detail.value
+    })
+  },
+  makePhoneCall(){
+    wx.makePhoneCall({
+      phoneNumber: '12315' 
+    })
+  },
   // test0(){
   //   wx.navigateTo({
   //     url: '../user/user',

@@ -4,7 +4,6 @@ Page({
   /**
    * 页面的初始数据
    */
-  list:[2,23,3],
   data: {
     text: '',
     index: 0,
@@ -21,9 +20,9 @@ Page({
     var that = this;
   wx.request({
     
-    url: 'https://www.zjzlnet.com/zjepeframeworks/zjepeframe_Common/queryCode?userId=admin&passWord=0192023a7bbd73250516f069df18b500',
+    url: 'https://localhost:8080/parkinglot/queryCode',
     data: {
-      codeType: 'feedbackType'
+    
     },
     method: 'GET',
     success(res){
@@ -146,7 +145,7 @@ Page({
       return;
     } else {
       wx.request({
-        url: 'https://www.zjzlnet.com/zjepeframeworks/zjepeframe_feedback/sumbitFeedback?userId=admin&passWord=0192023a7bbd73250516f069df18b500',
+        url: 'https://localhost/parkinglot/sumbitFeedback',
         data: {
           content: that.data.content,
           feedbackType: that.data.index - 1,
@@ -154,7 +153,7 @@ Page({
         },
         method: 'GET',
         success(res) {
-          if(res.data.data == "提交成功"){
+          if(res == "提交成功"){
             wx.showToast({
               title: '提交成功',
               duration: 2000,

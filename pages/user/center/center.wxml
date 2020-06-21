@@ -6,7 +6,7 @@
   <view style='font-size: 20rpx; color: lightgray;margin-left: 20rpx; color: #C0C0C0;'>您的意见是我们前进得动力</view>
 </view>
 <view class='character' style='color: #C0C0C0;'>{{characterNum}}/140</view>
- 
+
 <view class='category'>
   <picker bindchange="bindPickerChange" value="{{index}}" range="{{list}}">
     <view class='picker'>

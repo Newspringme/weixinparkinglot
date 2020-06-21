@@ -5,6 +5,7 @@
     "pages/park/park",
     "pages/user/user",
     "pages/user/feedback/feedback",
+    "pages/user/center/center",
     "pages/user/setting/setting",
     "pages/user/setting/password/password"
   ],

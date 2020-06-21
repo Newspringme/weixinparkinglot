@@ -37,6 +37,17 @@
 			"current": -1,
 			"list": []
 		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
 		"miniprogram": {
 			"current": -1,
 			"list": [
@@ -135,6 +146,12 @@
 					"name": "creategroup",
 					"pathName": "pages/group/creategroup/creategroup",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "center",
+					"pathName": "pages/user/center/center",
+					"scene": null
 				}
 			]
 		}

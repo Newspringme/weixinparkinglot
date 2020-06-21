@@ -97,6 +97,11 @@ Page({
       url: './feedback/feedback',
     })
   },
+  center() {
+    wx.navigateTo({
+      url: './center/center',
+    })
+  },
 
   toEntrance() {
     if (this.data.status == 1 || this.data.status == 2) {

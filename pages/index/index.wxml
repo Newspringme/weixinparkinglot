@@ -42,7 +42,7 @@ open-type='getPhoneNumber' bindgetphonenumber="getPhoneNumber">获取用户手�
   </view>
 
   <view class='button-bottom' style='width: {{windowWidth}}px;height: {{0.25*windowHeight}}px'>
-    <view class='button-bottom-left' bindtap='toGroup' style='width: {{btnSize}}px;height: {{0.8*btnSize}}px;'>
+    <view class='button-bottom-left' bindtap='makePhoneCall' style='width: {{btnSize}}px;height: {{0.8*btnSize}}px;'>
       <image src='http://aiworks.oss-cn-beijing.aliyuncs.com/index/group2.png' class='index-logo' style='height:70rpx;width:70rpx;'></image>
       <text style='font-size: 16px;'>联系客服</text>
     </view>
