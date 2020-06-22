@@ -4,7 +4,6 @@ Page({
   /**
    * 页面的初始数据
    */
-  list:[2,23,3],
   data: {
     text: '',
     index: 0,
@@ -17,30 +16,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    var that = this;
-  wx.request({
-    
-    url: 'https://www.zjzlnet.com/zjepeframeworks/zjepeframe_Common/queryCode?userId=admin&passWord=0192023a7bbd73250516f069df18b500',
-    data: {
-      codeType: 'feedbackType'
-    },
-    method: 'GET',
-    success(res){
-      console.log(res.data)
-      let list = [];
-      list.push("必填")
-      for (let i=0; i<res.data.length; i++) {
-        console.log(res.data[i].value)
-        list.push(res.data[i].value)
-      }
-      console.log(list)
-      that.setData ({
-          list: list
-      })
-    }
-  })
-  },
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -137,20 +113,12 @@ Page({
       })
       return;
     }
-    else if (that.data.index == 0) {
-      wx.showToast({
-        title: '未选择类型',
-        duration: 2000,
-        icon: 'loading'
-      })
-      return;
-    } else {
+    else {
       wx.request({
-        url: 'https://www.zjzlnet.com/zjepeframeworks/zjepeframe_feedback/sumbitFeedback?userId=admin&passWord=0192023a7bbd73250516f069df18b500',
+        url: 'http://localhost:8080/parkinglot/sumbitFeedback',
         data: {
           content: that.data.content,
-          feedbackType: that.data.index - 1,
-          phoneNo:that.data.phoneNo
+          phone:that.data.phoneNo
         },
         method: 'GET',
         success(res) {
