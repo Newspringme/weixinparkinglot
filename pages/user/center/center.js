@@ -6,40 +6,40 @@ Page({
    */
   data: {
     text: '',
-    index: 0,
-    list: [],
-    content: '',
-    characterNum: 0,
+    index: '',
+    list: ['男','女'],
+    name: '',
+    age: 0,
     phoneNo: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    var that = this;
-  wx.request({
+  // onLoad: function (options) {
+  //   var that = this;
+  // // wx.request({
     
-    url: 'https://localhost:8080/parkinglot/queryCode',
-    data: {
+  // //   url: 'https://localhost:8080/parkinglot/queryCode',
+  // //   data: {
     
-    },
-    method: 'GET',
-    success(res){
-      console.log(res.data)
-      let list = [];
-      list.push("必填")
-      for (let i=0; i<res.data.length; i++) {
-        console.log(res.data[i].value)
-        list.push(res.data[i].value)
-      }
-      console.log(list)
-      that.setData ({
-          list: list
-      })
-    }
-  })
-  },
+  // //   },
+  // //   method: 'GET',
+  // //   success(res){
+  // //     console.log(res.data)
+  // //     let list = [];
+  // //     list.push("必填")
+  // //     for (let i=0; i<res.data.length; i++) {
+  // //       console.log(res.data[i].value)
+  // //       list.push(res.data[i].value)
+  // //     }
+  // //     console.log(list)
+  // //     that.setData ({
+  // //         list: list
+  // //     })
+  // //   }
+  // // })
+  // },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -94,79 +94,93 @@ Page({
       index: e.detail.value
     })
   },
-  textareaInput(e) {
-    var that = this;
-    console.log(e)
-    if (e.detail.value.length>140) {
-      wx.showToast({
-        title: '字数超限',
-        duration: 1000,
-        mask: true
-      })
-      setTimeout(function() {
-        that.setData({
-          content: ''
-        })
-      }.bind(that), 1000)
-    }else {
-      that.setData({
-        content: e.detail.value,
-        characterNum: e.detail.value.length
-      })
-    }
+  // textareaInput(e) {
+  //   var that = this;
+  //   console.log(e)
+  //   if (e.detail.value.length>140) {
+  //     wx.showToast({
+  //       title: '字数超限',
+  //       duration: 1000,
+  //       mask: true
+  //     })
+  //     setTimeout(function() {
+  //       that.setData({
+  //         content: ''
+  //       })
+  //     }.bind(that), 1000)
+  //   }else {
+  //     that.setData({
+  //       content: e.detail.value,
+  //       characterNum: e.detail.value.length
+  //     })
+  //   }
 
-  },
+  // },
   phoneInput(e) {
     this.setData({
       phoneNo: e.detail.value
     })
   },
-  makePhoneCall(){
-    wx.makePhoneCall({
-      phoneNumber: '12315' 
+  ageInput(e) {
+    this.setData({
+      age: e.detail.value
     })
   },
+  nameInput(e) {
+    this.setData({
+      name: e.detail.value
+    })
+  },
+  // makePhoneCall(){
+  //   wx.makePhoneCall({
+  //     phoneNumber: '12315' 
+  //   })
+  // },
   submit() {
     var that = this;
-    if (that.data.characterNum == 0) {
+    if (that.data.name == 0) {
       wx.showToast({
-        title: '未输入内容',
-        duration: 2000,
+        title: '未输入昵称',
+        duration: 1000,
+        icon: 'loading'
+      })
+      return;
+    }else if(that.data.phoneNo == 0){
+      wx.showToast({
+        title: '未输入联系电话',
+        duration: 1000,
         icon: 'loading'
       })
       return;
     }
-    else if (that.data.index == 0) {
-      wx.showToast({
-        title: '未选择类型',
-        duration: 2000,
-        icon: 'loading'
-      })
-      return;
-    } else {
-      wx.request({
-        url: 'https://localhost/parkinglot/sumbitFeedback',
-        data: {
-          content: that.data.content,
-          feedbackType: that.data.index - 1,
-          phoneNo:that.data.phoneNo
-        },
-        method: 'GET',
-        success(res) {
-          if(res == "提交成功"){
-            wx.showToast({
-              title: '提交成功',
-              duration: 2000,
-              icon: 'success'
-            })
-            setTimeout(function(){
-              wx.navigateBack({
-                url: '../../user/user',
-              })
-            }.bind(this), 2000)
-          }
-        }
-      })
+   else {
+     console.log("name="+that.data.name);
+     console.log("age="+that.data.age);
+     console.log("phone="+that.data.phoneNo);
+     console.log("index="+that.data.list[that.data.index]);
+      // wx.request({
+      //   url: 'https://localhost/parkinglot/sumbitFeedback',
+      //   data: {
+      //     content: that.data.content,
+      //     feedbackType: that.data.index - 1,
+      //     phoneNo:that.data.phoneNo
+      //   },
+      //   method: 'GET',
+      //   success(res) {
+      //     if(res == "提交成功"){
+      //       wx.showToast({
+      //         title: '提交成功',
+      //         duration: 2000,
+      //         icon: 'success'
+      //       })
+      //       setTimeout(function(){
+      //         wx.navigateBack({
+      //           url: '../../user/user',
+      //         })
+      //       }.bind(this), 2000)
+      //     }
+      //   }
+      // })
     }
   }
   
