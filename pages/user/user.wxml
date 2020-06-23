@@ -18,6 +18,17 @@
     <view class="navigator-arrow" style='margin-left: 130rpx;'></view>
   </view>
 </view>
+
+<view class='form' bindtap='expense'>
+ <view class='form-item'>
+    <view class='form-item-image'>
+      <image src='http://39.102.35.36:8080/parkinglot/static/img/icon/history.png' style='height: 60rpx;width: 60rpx;'></image>
+    </view>
+    <view class='form-item-title'>消费记录</view>
+    <view class="navigator-arrow" style='margin-left: 130rpx;'></view>
+  </view>
+</view>
+
 <view class='form' bindtap='toPark'>
  <view class='form-item'>
     <view class='form-item-image'>

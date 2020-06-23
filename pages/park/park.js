@@ -3,6 +3,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    money:'',
+    maxmoney:'',
     num: '',
     carNum: '',
     disabled: 'false',
@@ -47,6 +49,28 @@ Page({
         // console.log(res.data[0].data.spaceNum);
         that.setData({
           num: res.data[0].data.spaceNum
+        })
+      }
+    }),
+ // 查询空车位
+    wx.request({
+      url: 'https://www.zjzlnet.com/zjepeframeworks/zjepeframe_Parking/parkSpaceNum?userId=admin&passWord=0192023a7bbd73250516f069df18b500',
+      method: 'GET',
+      success(res) {
+        // console.log(res.data[0].data.spaceNum);
+        that.setData({
+          num: res.data[0].data.spaceNum
+        })
+      }
+    }),
+    // 查询计费规则
+    wx.request({
+      url: 'http://localhost:8080/parkinglot/AdminController/queryPrice',
+      method: 'GET',
+      success(res) {
+        that.setData({
+          money: res.data.ratesUprice,
+          maxmoney: res.data.ratesMaxprice
         })
       }
     }),
