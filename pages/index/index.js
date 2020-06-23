@@ -47,38 +47,38 @@ Page({
       }
     })
   },
-  onShow() {
-    var that = this;
-    that.setData({
-      token: wx.getStorageSync('token')
-    })
-    wx.request({
-      url: 'https://www.zjzlnet.com/zjepeframeworks/zjepeframe_Common/getUserByToken',
-      data: {
-        userId: 'admin',
-        passWord: '0192023a7bbd73250516f069df18b500',
-        token: that.data.token
-      },
-      method: 'GET',
-      success(res) {
-        console.log(res.data.data)
-        // 1代表未审核，0代表已审核
-        that.setData({
-          status: res.data.data
-        })
-        wx.setStorage({
-          key: "status",
-          data: that.data.status
-        })
-      },
-      fail() {
-        wx.setStorage({
-          key: 'status',
-          data: '2',
-        })
-      }
-    })
-  },
+  // onShow() {
+  //   var that = this;
+  //   that.setData({
+  //     token: wx.getStorageSync('token')
+  //   })
+  //   wx.request({
+  //     url: 'https://www.zjzlnet.com/zjepeframeworks/zjepeframe_Common/getUserByToken',
+  //     data: {
+  //       userId: 'admin',
+  //       passWord: '0192023a7bbd73250516f069df18b500',
+  //       token: that.data.token
+  //     },
+  //     method: 'GET',
+  //     success(res) {
+  //       console.log(res.data.data)
+  //       // 1代表未审核，0代表已审核
+  //       that.setData({
+  //         status: res.data.data
+  //       })
+  //       wx.setStorage({
+  //         key: "status",
+  //         data: that.data.status
+  //       })
+  //     },
+  //     fail() {
+  //       wx.setStorage({
+  //         key: 'status',
+  //         data: '2',
+  //       })
+  //     }
+  //   })
+  // },
   onHide: function () {
     this.setData({
       status: 2

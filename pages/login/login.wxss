@@ -112,7 +112,7 @@
 }
 .section-three-switch {
 
-  border: solid 1px #0062B3;
+  border: solid 1px rgb(34, 147, 240);
   width: 250rpx;
   height: 70rpx;
   border-radius: 2em;
