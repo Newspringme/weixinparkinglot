@@ -7,7 +7,7 @@ Page({
   data: {
     text: '',
     index: 0,
-    list: ['浙', '沪', '苏', '京', '津', '冀', '晋', '蒙', '黑', '吉', '辽', '皖', '闽', '赣', '鲁', '豫', '鄂', '湘', '粤', '贵', '琼', '川', '贵', '云', '渝', '藏', '陕', '甘', '青', '宁', '新'],
+    list: [],
     content: '',
     characterNum: 0,
     phoneNo: ''
@@ -16,38 +16,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-<<<<<<< HEAD
-<<<<<<< HEAD
-  // onLoad: function (options) {
-  //   var that = this;
-  // wx.request({
-    
-  //   url: 'https://www.zjzlnet.com/zjepeframeworks/zjepeframe_Common/queryCode?userId=admin&passWord=0192023a7bbd73250516f069df18b500',
-  //   data: {
-  //     codeType: 'feedbackType'
-  //   },
-  //   method: 'GET',
-  //   success(res){
-  //     console.log(res.data)
-  //     let list = [];
-  //     list.push("必填")
-  //     for (let i=0; i<res.data.length; i++) {
-  //       console.log(res.data[i].value)
-  //       list.push(res.data[i].value)
-  //     }
-  //     console.log(list)
-  //     that.setData ({
-  //         list: list
-  //     })
-  //   }
-  // })
-  // },
-=======
 
->>>>>>> dome
-=======
-
->>>>>>> dome
 
   /**
    * 生命周期函数--监听页面初次渲染完成
