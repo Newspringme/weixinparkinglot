@@ -7,15 +7,7 @@
 </view>
 <view class='character' style='color: #C0C0C0;'>{{characterNum}}/140</view>
  
-<view class='category'>
-  <picker bindchange="bindPickerChange" value="{{index}}" range="{{list}}">
-    <view class='picker'>
-      <view class='picker-title'>类型</view>
-      <view class='picker-content'>{{list[index]}}</view>
-      <view class="navigator-arrow" style='margin-left: 40rpx;'></view>
-    </view>
-  </picker>
-</view>
+
 <view class='contact'>
 <view class='contact-title'>联系电话</view>
 <view class='contact-input'><input placeholder='选填' placeholder-style='color: lightgray;' bindinput='phoneInput'></input></view>
