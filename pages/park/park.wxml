@@ -2,7 +2,15 @@
 <view class='status'>
   空车位总数
   <view class='num'>{{num}}</view>
-  （当前时段收费5元/小时）
+</view>
+<view style="font-size: 32rpx;">
+    <text>菜鸡停车收费规则：\n</text>
+    <text>半小时以内：免费\n</text>
+    <text class='money'> 以后每小时：{{money}}元\n</text>
+    <text class='maxmoney'>每天最高收费：{{maxmoney}}元\n</text>
+    <text>备注：\n</text>
+    <text>1、停车收费标注可通过下方进行修改。\n</text>
+    <text>2、停车不足一小时按一小时计价。\n</text>
 </view>
 <!-- 添加车牌 -->
 <!-- 车牌选择 -->

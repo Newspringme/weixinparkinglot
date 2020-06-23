@@ -151,6 +151,20 @@
 					"id": -1,
 					"name": "center",
 					"pathName": "pages/user/center/center",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/user/center/center",
+					"pathName": "pages/user/center/center",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/user/expense/expense",
+					"pathName": "pages/user/expense/expense",
 					"scene": null
 				}
 			]

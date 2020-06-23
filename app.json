@@ -7,12 +7,14 @@
     "pages/user/feedback/feedback",
     "pages/user/center/center",
     "pages/user/setting/setting",
-    "pages/user/setting/password/password"
+    "pages/user/setting/password/password",
+    "pages/user/expense/expense",
+    "pages/user/expense/record/record"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#000",
-    "navigationBarTitleText": "AiWorks",
+    "navigationBarTitleText": "Parkinglot",
     "navigationBarTextStyle": "white"
   },
   "sitemapLocation": "sitemap.json"

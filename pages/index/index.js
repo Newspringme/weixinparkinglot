@@ -28,7 +28,7 @@ Page({
     }
     
     wx.request({
-      url: 'http://localhost:8080/parkinglot/queryImgUrl',
+      url: 'http://39.102.35.36:8080/parkinglot/queryImgUrl',
       data: {
       
       },

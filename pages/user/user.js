@@ -157,5 +157,12 @@ Page({
     wx.navigateTo({
       url: './setting/setting',
     })
+  },
+  expense(){
+    wx.navigateTo({
+      url: './expense/expense',
+    })
   }
+
+
 })

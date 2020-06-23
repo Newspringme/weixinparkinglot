@@ -1,0 +1,10 @@
+<view class='status'>
+  菜鸡停车场——parkinglot
+</view>
+<view style="font-size: 32rpx;padding: 20px;">
+    <text class='billNum'>订单编号：{{billNum}}\n</text>
+    <text class='userName'>用户名：{{userName}}\n</text>
+    <text class='comboName'>消费事项：{{comboName}}\n</text>
+    <text class='billTime'>账单时间：{{billTime}}\n</text>
+    <text class='billMoney'> 金额：{{billMoney}}元\n</text>
+</view>

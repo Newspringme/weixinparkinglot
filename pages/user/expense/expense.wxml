@@ -1,0 +1,21 @@
+<view class='profile'>
+  <view class='form-item-image'>
+    <image src='http://39.102.35.36:8080/parkinglot/static/img/icon/history.png' style='height: 60rpx;width: 60rpx;'></image>
+  </view>
+  <view class='detail'>
+    <view class='desc'>账单记录</view>
+  </view>
+</view>
+ <!-- wx:for是循环数组，wx:for-item即给列表赋别名,wx:for-index小标 -->
+<view wx:for="{{array}}" wx:for-index="index" wx:for-item="tbBill">
+  <view class='form'>
+    <view class='form-item'>
+      <view class='form-item-title'>
+        <a bindtap='moneyRecord' id="{{tbBill.billNum}}" class="button">
+          订单编号：{{tbBill.billNum}}
+        </a>
+      </view>
+      <view class="navigator-arrow" style='margin-left: 65rpx;'></view>
+    </view>
+  </view>
+</view>
