@@ -16,6 +16,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
+<<<<<<< HEAD
   // onLoad: function (options) {
   //   var that = this;
   // wx.request({
@@ -40,6 +41,9 @@ Page({
   //   }
   // })
   // },
+=======
+
+>>>>>>> dome
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -136,20 +140,12 @@ Page({
       })
       return;
     }
-    else if (that.data.index == 0) {
-      wx.showToast({
-        title: '未选择类型',
-        duration: 2000,
-        icon: 'loading'
-      })
-      return;
-    } else {
+    else {
       wx.request({
-        url: 'https://www.zjzlnet.com/zjepeframeworks/zjepeframe_feedback/sumbitFeedback?userId=admin&passWord=0192023a7bbd73250516f069df18b500',
+        url: 'http://localhost:8080/parkinglot/sumbitFeedback',
         data: {
           content: that.data.content,
-          feedbackType: that.data.index - 1,
-          phoneNo:that.data.phoneNo
+          phone:that.data.phoneNo
         },
         method: 'GET',
         success(res) {
