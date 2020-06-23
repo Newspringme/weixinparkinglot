@@ -10,6 +10,7 @@ Page({
     billTime: '',
     billMoney: '',
     comboName: '',
+    carNum: ''
   },
 
   /**
@@ -17,7 +18,6 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-    console.log(options.carNum);
     console.log(options.billNum);
     that.setData({
       billNum: options.billNum,
@@ -28,12 +28,12 @@ Page({
         url: 'http://localhost:8080/parkinglot/queryBilldetails',
         method: 'GET',
         data: {
-          carNum:'京A00001',
           billNum: options.billNum,
         },
         success(res) {
           console.log(res.data);
           that.setData({
+            carNum: res.data.carNum,
             userName: res.data.userName,
             billTime: res.data.billTime,
             billMoney: res.data.billMoney,

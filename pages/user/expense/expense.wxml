@@ -15,7 +15,7 @@
           订单编号：{{tbBill.billNum}}
         </a>
       </view>
-      <view class="navigator-arrow" style='margin-left: 65rpx;'></view>
+      <view class="navigator-arrow" style='margin-left: 240rpx;'></view>
     </view>
   </view>
 </view>

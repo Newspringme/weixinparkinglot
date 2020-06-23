@@ -36,8 +36,8 @@ open-type='getPhoneNumber' bindgetphonenumber="getPhoneNumber">获取用户手�
       <text style='font-size: 16px;'>查看车位</text>
     </view>
     <view class='button-top-right' style='width: {{btnSize}}px;height: {{0.8*btnSize}}px;' bindtap='toPark'>
-      <image src='http://aiworks.oss-cn-beijing.aliyuncs.com/login/park2.png' class='index-logo' style='height:70rpx;width:70rpx;'></image>
-      <text style='font-size: 16px;'>停车</text>
+      <image src='http://39.102.35.36:8080/parkinglot/static/img/icon/xiaoche-sijiache.png' class='index-logo' style='height:70rpx;width:70rpx;'></image>
+      <text style='font-size: 16px;'>停车信息</text>
     </view>
   </view>
 
@@ -58,8 +58,9 @@ open-type='getPhoneNumber' bindgetphonenumber="getPhoneNumber">获取用户手�
   <view class='button-center-two' style='height: {{0.9*btnSize}}px;width: {{0.9*btnSize}}px;background-color: #F2F2F2; border-radius: 50%;margin: auto auto;position:relative;  display: flex;flex-direction: column;justify-content: center;align-items: center;'>
     <view class='button-center-three' style='height: {{0.8*btnSize}}px;width: {{0.8*btnSize}}px;background-color: white; border-radius: 50%;margin: auto auto;position:relative;  display: flex;flex-direction: column;justify-content: center;align-items: center;'>
       <view class='button-center-inner' style='height: {{0.7*btnSize}}px;width: {{0.7*btnSize}}px;'>
-        <image src='http://aiworks.oss-cn-beijing.aliyuncs.com/index/user.png' class='index-logo'></image>
-        <text>我的</text>
+        <image src='http://39.102.35.36:8080/parkinglot/static/img/icon/namecard.png' 
+        class='index-logo'></image>
+        <text>个人中心</text>
       </view>
     </view>
   </view>

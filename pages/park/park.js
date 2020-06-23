@@ -43,29 +43,18 @@ Page({
     })
     // 查询空车位
     wx.request({
-      url: 'https://www.zjzlnet.com/zjepeframeworks/zjepeframe_Parking/parkSpaceNum?userId=admin&passWord=0192023a7bbd73250516f069df18b500',
+      url: 'http://39.102.35.36:8080/parkinglot/queryNullPark',
       method: 'GET',
       success(res) {
-        // console.log(res.data[0].data.spaceNum);
+        // console.log(res.data);
         that.setData({
-          num: res.data[0].data.spaceNum
-        })
-      }
-    }),
- // 查询空车位
-    wx.request({
-      url: 'https://www.zjzlnet.com/zjepeframeworks/zjepeframe_Parking/parkSpaceNum?userId=admin&passWord=0192023a7bbd73250516f069df18b500',
-      method: 'GET',
-      success(res) {
-        // console.log(res.data[0].data.spaceNum);
-        that.setData({
-          num: res.data[0].data.spaceNum
+          num: res.data
         })
       }
     }),
     // 查询计费规则
     wx.request({
-      url: 'http://localhost:8080/parkinglot/AdminController/queryPrice',
+      url: 'http://39.102.35.36:8080/parkinglot/AdminController/queryPrice',
       method: 'GET',
       success(res) {
         that.setData({

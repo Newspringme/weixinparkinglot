@@ -20,7 +20,20 @@ Page({
     loginPhone: '',
     loginPassword: '',
     multiIndex: [0, 0],
-    multiArrayId: []
+    multiArrayId: [],
+    carList: [{
+      carBrand: '',
+      carColor: '',
+      carId: 0,
+      carNum: '',
+      carType: '',
+      comboId: 0,
+      comboName: '',
+      endTime: '',
+      userId: 0,
+      userName: '',
+      userTel: ''
+    }]
   },
 
   /**
@@ -349,6 +362,26 @@ Page({
                     })
                     console.log(that.data.loginPhone);
                     console.log('ffff'+wx.getStorageSync('userTel'));
+
+                    wx.request({
+                      url: 'http://localhost:8080/parkinglot/queryCarNum',
+                      method: 'GET',
+                      data: {
+                        userTel:that.data.loginPhone
+                      },
+                      success(res) {
+                        console.log(888888)
+                        console.log(res.data);
+                        if(res.data!=null){
+                          wx.setStorageSync('carList',res.data);
+                          that.setData({
+                            carList: res.data
+                          })
+                        }
+                      }
+                    })
+
+
 
                     wx.navigateTo({
                       url: '../index/index',

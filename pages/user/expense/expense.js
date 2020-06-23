@@ -24,6 +24,7 @@ Page({
       userName: ''
     }
   ],
+  carList:[{}]
   },
 
 
@@ -33,15 +34,19 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
+    var carList = wx.getStorageSync('carList');
+    console.log(carList);
+    console.log(wx.getStorageSync('carList'));
     // 查询金额记录
     wx.request({
       url: 'http://localhost:8080/parkinglot/weiXinQueryBill',
       method: 'GET',
       data: {
-        carNum:'京A00001',
+        carList:carList,
       },
       success(res) {
-        // console.log(res.data.data);
+        console.log(res)
+        console.log(res.data.data);
         // console.log(res.data.data[0].billNum);
         that.setData({
           array: res.data.data,
@@ -101,11 +106,11 @@ Page({
   },
 
   moneyRecord:function (e) {
+    var that = this;
       var billNum = e.target.id;
-      var carNum = '京A00001';
       console.log(billNum);
       wx.navigateTo({
-        url: '../expense/record/record?carNum='+carNum+'&billNum='+billNum,
+        url: '../expense/record/record?billNum='+billNum,
       })
   }
   
