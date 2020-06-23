@@ -17,6 +17,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
 <<<<<<< HEAD
+<<<<<<< HEAD
   // onLoad: function (options) {
   //   var that = this;
   // wx.request({
@@ -41,6 +42,9 @@ Page({
   //   }
   // })
   // },
+=======
+
+>>>>>>> dome
 =======
 
 >>>>>>> dome
