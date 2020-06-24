@@ -29,7 +29,8 @@ Page({
     car: [],
     button: 'add',
     index3: 0,
-    unbindcar: ''
+    unbindcar: '',
+    list: [{}],
   },
 
   /**
@@ -37,10 +38,40 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-    let status = wx.getStorageSync('status')
+    let status = wx.getStorageSync('status');
     that.setData({
       status: status
+    });
+
+    // 登录者已绑定车辆
+    let list = wx.getStorageSync('carList');
+    that.setData({
+      list: list,
+    });
+    console.log(list);
+    if (list.length == 1) {
+      that.setData({
+        plateId1: list[0].carNum
+      })
+    }
+    if (list.length == 2) {
+      that.setData({
+        plateId2: list[1].carNum,
+        plateId1: list[0].carNum,
+      })
+    }
+    if (list.length == 3) {
+      that.setData({
+        plateId3: list[2].carNum,
+        plateId2: list[1].carNum,
+        plateId1: list[0].carNum,
+        button: 'sub'
+      })
+    }
+    that.setData({
+      car: list
     })
+
     // 查询空车位
     wx.request({
       url: 'http://39.102.35.36:8080/parkinglot/queryNullPark',
@@ -62,49 +93,8 @@ Page({
           maxmoney: res.data.ratesMaxprice
         })
       }
-    }),
-      // 查询车牌
-      wx.request({
-        url: 'https://www.zjzlnet.com/zjepeframeworks/zjepeframe_Parking/getPlateIdByToken',
-        method: 'GET',
-        data: {
-          userId: 'admin',
-          passWord: '0192023a7bbd73250516f069df18b500',
-          token: wx.getStorageSync('token'),
-          userType: that.data.status
-        },
-        success(res) {
-          // console.log(res.data[0].data[1]);   
-          // 没有返回值，等后端调试得数值给data赋值，就可以展示车牌了
-          let list = [];
-          for (let i = 0; i < res.data[0].data.length; i++) {
-            list.push(res.data[0].data[i]);
+    })
 
-          };
-          if (list.length == 1) {
-            that.setData({
-              plateId1: list[0]
-            })
-          }
-          if (list.length == 2) {
-            that.setData({
-              plateId2: list[1],
-              plateId1: list[0],
-            })
-          }
-          if (list.length == 3) {
-            that.setData({
-              plateId3: list[2],
-              plateId2: list[1],
-              plateId1: list[0],
-              button: 'sub'
-            })
-          }
-          that.setData({
-            car: list
-          })
-        }
-      })
   },
 
   /**
@@ -197,7 +187,6 @@ Page({
         let list = [];
         for (let i = 0; i < res.data[0].data.length; i++) {
           list.push(res.data[0].data[i]);
-
         };
         if (list.length == 1) {
           that.setData({
@@ -362,38 +351,78 @@ Page({
       })
       return;
     }
+  // 修改用户特权
+    // console.log(that.data.list);
+    // console.log(this.data.list[0].carNum);
+    // console.log(this.data.plateId1);
+    for (let i = 0; i < that.data.list.length; i++) {
+      if(that.data.list[i].carNum==this.data.plateId1){
+        if(that.data.list[i].comboName!=null){
+           that.setData({
+            coupon: that.data.list[i].comboName
+          })
+          break;
+        }
+      } else{
+        that.setData({
+          coupon: '无减免特权'
+        })
+      }
+    }
     that.setData({
       plateId3color: 'lightgray',
       plateId1color: '#0082DF',
-      plateId2color: 'lightgray'
-    }),
-      wx.request({
-        url: 'https://www.zjzlnet.com/zjepeframeworks/zjepeframe_Parking/getCharge?userId=admin&passWord=0192023a7bbd73250516f069df18b500',
+      plateId2color: 'lightgray',
+      carNum: that.data.plateId1
+    });
+// 查询是否停车，需要交费多少
+    wx.request({
+        url: 'http://39.102.35.36:8080/parkinglot/parkController/queryParkByCarNum',
         method: 'GET',
         data: {
-          plateId: this.data.plateId1
+          searchText: this.data.plateId1,
         },
         success(res) {
-          console.log(res.data[0].data.datas.payCharge)
-          var pay = res.data[0].data.datas.payCharge / 100
-          that.setData({
-            fee: pay,
-            state: '已',
-            state2: ''
-          })
-        }
-      }),
-      wx.request({
-        url: 'https://www.zjzlnet.com/zjepeframeworks/zjepeframe_Parking/isMember?userId=admin&passWord=0192023a7bbd73250516f069df18b500',
-        method: 'GET',
-        data: {
-          plateId: this.data.plateId1
-        },
-        success(res) {
-          console.log(res.data);
-          that.setData({
-            coupon: res.data[0].data
-          })
+          console.log(res)
+          if(res.data!='false'){
+            that.setData({
+              state: '已',
+              state2: ''
+            })
+            if(that.data.list[0].comboId==0){
+              // 已停车且无办卡，查需要缴费多少
+              wx.request({
+                url: 'http://localhost:8080/parkinglot/weiXinCarPay',
+                method: 'GET',
+                data: {
+                  carNum: that.data.plateId1,
+                  type: 'car'
+                },
+                success(res) {
+                  console.log('支付金额：')
+                  console.log(res.data);
+                  var pay = res.data;
+                  that.setData({
+                    fee: pay,
+                    state: '已',
+                    state2: ''
+                  })
+                }
+              })
+            }else{
+              that.setData({
+                fee: '',
+                state: '已',
+                state2: '无'
+              })
+            }
+          }else{
+            that.setData({
+              fee: '',
+              state: '未',
+              state2: '无'
+            })
+          }
         }
       })
   },
@@ -407,38 +436,78 @@ Page({
       })
       return;
     }
+  // 修改用户特权
+    console.log(that.data.list);
+    console.log(this.data.list[1].carNum);
+    console.log(this.data.plateId2);
+    for (let i = 0; i < that.data.list.length; i++) {
+      if(that.data.list[i].carNum==this.data.plateId2){
+        if(that.data.list[i].comboName!=null){
+           that.setData({
+            coupon: that.data.list[i].comboName
+          })
+          break;
+        }
+      } else{
+        that.setData({
+          coupon: '无减免特权'
+        })
+      }
+    }
     that.setData({
       plateId3color: 'lightgray',
       plateId1color: 'lightgray',
-      plateId2color: '#0082DF'
+      plateId2color: '#0082DF',
+      carNum: that.data.plateId1
     })
+    // 查询是否停车，需要交费多少
     wx.request({
-      url: 'https://www.zjzlnet.com/zjepeframeworks/zjepeframe_Parking/getCharge?userId=admin&passWord=0192023a7bbd73250516f069df18b500',
+      url: 'http://39.102.35.36:8080/parkinglot/parkController/queryParkByCarNum',
       method: 'GET',
       data: {
-        plateId: this.data.plateId2
+        searchText: this.data.plateId2
       },
       success(res) {
-        console.log(res.data[0].data.datas.payCharge)
-        var pay = res.data[0].data.datas.payCharge / 100
-        that.setData({
-          fee: pay,
-          state: '已',
-          state2: ''
-        })
-      }
-    })
-    wx.request({
-      url: 'https://www.zjzlnet.com/zjepeframeworks/zjepeframe_Parking/isMember?userId=admin&passWord=0192023a7bbd73250516f069df18b500',
-      method: 'GET',
-      data: {
-        plateId: this.data.plateId2
-      },
-      success(res) {
-        console.log(res.data);
-        that.setData({
-          coupon: res.data[0].data
-        })
+        console.log(res)
+        if(res.data!='false'){
+          that.setData({
+            state: '已',
+            state2: ''
+          });
+          if(that.data.list[1].comboId==0){
+            // 已停车且无办卡，查需要缴费多少
+            wx.request({
+              url: 'http://39.102.35.36:8080/parkinglot/weiXinCarPay',
+              method: 'GET',
+              data: {
+                carNum: that.data.plateId2,
+                type: 'car'
+              },
+              success(res) {
+                console.log('支付金额：')
+                console.log(res.data);
+                var pay = res.data;
+                that.setData({
+                  fee: pay,
+                  state: '已',
+                  state2: ''
+                })
+              }
+            })
+          }else{
+            that.setData({
+              fee: '',
+              state: '已',
+              state2: '无'
+            })
+          }
+        }else{
+          that.setData({
+            fee: '',
+            state: '未',
+            state2: '无'
+          })
+        }
       }
     })
   },
@@ -452,38 +521,75 @@ Page({
       })
       return;
     }
+    // 修改用户特权
+    for (let i = 0; i < that.data.list.length; i++) {
+      if(that.data.list[i].carNum==this.data.plateId3){
+        if(that.data.list[i].comboName!=null){
+           that.setData({
+            coupon: that.data.list[i].comboName
+          })
+          break;
+        }
+      } else{
+        that.setData({
+          coupon: '无减免特权'
+        })
+      }
+    }
     that.setData({
       plateId3color: '#0082DF',
       plateId1color: 'lightgray',
-      plateId2color: 'lightgray'
+      plateId2color: 'lightgray',
+      carNum: that.data.plateId1
     })
+    // 查询是否停车，需要交费多少
     wx.request({
-      url: 'https://www.zjzlnet.com/zjepeframeworks/zjepeframe_Parking/getCharge?userId=admin&passWord=0192023a7bbd73250516f069df18b500',
+      url: 'http://39.102.35.36:8080/parkinglot/parkController/queryParkByCarNum',
       method: 'GET',
       data: {
-        plateId: this.data.plateId3
+        searchText: this.data.plateId3
       },
       success(res) {
-        console.log(res.data[0].data.datas.payCharge)
-        var pay = res.data[0].data.datas.payCharge / 100
-        that.setData({
-          fee: pay,
-          state: '已',
-          state2: ''
-        })
-      }
-    })
-    wx.request({
-      url: 'https://www.zjzlnet.com/zjepeframeworks/zjepeframe_Parking/isMember?userId=admin&passWord=0192023a7bbd73250516f069df18b500',
-      method: 'GET',
-      data: {
-        plateId: this.data.plateId3
-      },
-      success(res) {
-        console.log(res.data);
-        that.setData({
-          coupon: res.data[0].data
-        })
+        console.log(res)
+        if(res.data!='false'){
+          that.setData({
+            state: '已',
+            state2: ''
+          })
+          if(that.data.list[2].comboId==0){
+            // 已停车且无办卡，查需要缴费多少
+            wx.request({
+              url: 'http://39.102.35.36:8080/parkinglot/weiXinCarPay',
+              method: 'GET',
+              data: {
+                carNum: that.data.plateId3,
+                type: 'car'
+              },
+              success(res) {
+                console.log('支付金额：')
+                console.log(res.data);
+                var pay = res.data;
+                that.setData({
+                  fee: pay,
+                  state: '已',
+                  state2: ''
+                })
+              }
+            })
+          }else{
+            that.setData({
+              fee: '',
+              state: '已',
+              state2: '无'
+            })
+          }
+        }else{
+          that.setData({
+            fee: '',
+            state: '未',
+            state2: '无'
+          })
+        }
       }
     })
   }

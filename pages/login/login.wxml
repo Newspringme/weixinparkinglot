@@ -17,12 +17,12 @@
 <view class='section-two' wx:if='{{sectionTwo}}'>
   <view class='section-two-form'>
     <view class='section-two-username'>
-      <image src='http://aiworks.oss-cn-beijing.aliyuncs.com/login/username.png' style='height:50rpx;width:50rpx;'></image>
-      <input placeholder='请输入11位手机号' placeholder-class='input' bindinput='sectionTwoPhone' type='number' style='margin-left: 30rpx;border-bottom: 1px solid gray;font-size: 28rpx; width: 420rpx;'></input>
+      <image src='http://39.102.35.36:8080/parkinglot/static/img/icon/usercenter.png' style='height:50rpx;width:50rpx;'></image>
+      <input placeholder='请输入11位手机号' placeholder-class='input' bindinput='sectionTwoPhone' type='number' style='margin-left: 30rpx;border-bottom: 1px solid gray;font-size: 28rpx; width: 420rpx;' value="15860964992"></input>
     </view>
     <view class='section-two-password'>
       <image src='http://39.102.35.36:8080/parkinglot/static/img/icon/password.png' style='height:50rpx;width:50rpx;'></image>
-      <input placeholder='请输入6位以上密码' placeholder-class='input' bindinput='sectionTwoPassword' type='password' style='margin-left: 30rpx;border-bottom: 1px solid gray;font-size: 28rpx; width: 420rpx;'></input>
+      <input placeholder='请输入6位以上密码' placeholder-class='input' bindinput='sectionTwoPassword' type='password' style='margin-left: 30rpx;border-bottom: 1px solid gray;font-size: 28rpx; width: 420rpx;' value="123456"></input>
     </view>
   </view>
   <view class='section-two-button' bindtap='loginHandle'>登录</view>
@@ -38,11 +38,11 @@
   
     <view class='section-three-form'>
       <view class='section-three-username'>
-        <image src='http://aiworks.oss-cn-beijing.aliyuncs.com/login/username.png' style='height:50rpx;width:50rpx;'></image>
+        <image src='http://39.102.35.36:8080/parkinglot/static/img/icon/usercenter.png' style='height:50rpx;width:50rpx;'></image>
         <input placeholder='请输入11位手机号' placeholder-class='input' bindinput='sectionThreeVisitorPhone' type='number' style='margin-left: 30rpx;border-bottom: 1px solid gray;font-size: 28rpx; width: 420rpx;'></input>
       </view>
       <view class='section-three-password'>
-        <image src='http://aiworks.oss-cn-beijing.aliyuncs.com/login/password.png' style='height:50rpx;width:50rpx;'></image>
+        <image src='http://39.102.35.36:8080/parkinglot/static/img/icon/password.png' style='height:50rpx;width:50rpx;'></image>
         <input placeholder='请输入6位以上密码' placeholder-class='input' bindinput='sectionThreeVisitorPassword' type='password' style='margin-left: 30rpx;border-bottom: 1px solid gray;font-size: 28rpx; width: 420rpx;'></input>
       </view>
   

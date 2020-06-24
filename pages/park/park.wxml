@@ -12,6 +12,15 @@
     <text>1、停车收费标注可通过下方进行修改。\n</text>
     <text>2、停车不足一小时按一小时计价。\n</text>
 </view>
+<!-- 已有车辆显示 -->
+<view class='coupon'>
+  <label>已有车辆</label>
+</view>
+
+
+
+
+
 <!-- 添加车牌 -->
 <!-- 车牌选择 -->
  <view class='cards' wx:if="{{inputstate == 1}}">
@@ -25,6 +34,7 @@
   <view class='card' style='font-size: 28rpx;text-align: center;color: {{i.color}}' wx:for='{{car}}' wx:for-item='i' bindtap='carHandle' id="{{i}}">{{i.plateId}}</view>
   <view class='add' bindtap='addcard'>添加</view>
 </view>  -->
+
 <!-- 输入车牌 -->
 <view class='cardinput' wx:if="{{inputstate == 2}}">
   <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}" style='width:15%;height: 50rpx;font-size: 30rpx;text-align: center;line-height:50rpx;'>
