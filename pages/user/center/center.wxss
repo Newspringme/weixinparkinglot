@@ -1,27 +1,6 @@
 @import '../../common/index.wxss';
 
-.textarea {
-  margin-top: 30rpx;
-  width: 100vw;
-  /* background-color: yellow; */
-  height: 35vh;
-  padding-top: 2vh solid green;
-  border-bottom: 1px solid lightgray;
-  margin: auto auto;
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-.textarea textarea {
-  height: 80%;
-  width: 90%;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: gray;
-  font-size: 40rpx;
-  /* background-color: green; */
-}
+
 .tips {
   display: flex;
   flex-direction: row;
@@ -50,6 +29,8 @@
   border-radius: 5px;
   text-align: center;
   line-height: 6vh;
+  margin-top: 40vh;
+
 }
 
 /* .button button {
@@ -112,7 +93,9 @@
   font-size: 30rpx;
   display: flex;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
+  margin-left: 4vh;
+
 }
 .contact-input {
   width: 62vw;
