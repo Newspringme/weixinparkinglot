@@ -115,7 +115,7 @@ Page({
     }
     else {
       wx.request({
-        url: 'http://localhost:8080/parkinglot/sumbitFeedback',
+        url: 'http://39.102.35.36:8080/parkinglot/sumbitFeedback',
         data: {
           content: that.data.content,
           phone:that.data.phoneNo

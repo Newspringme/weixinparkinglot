@@ -47,7 +47,7 @@ open-type='getPhoneNumber' bindgetphonenumber="getPhoneNumber">获取用户手�
       <text style='font-size: 16px;'>联系客服</text>
     </view>
 
-    <view class='button-bottom-right' bindtap='toGuest' style='width: {{btnSize}}px;height: {{0.8*btnSize}}px;'>
+    <view class='button-bottom-right' bindtap='toMonthCombo' style='width: {{btnSize}}px;height: {{0.8*btnSize}}px;'>
       <image src='http://39.102.35.36:8080/parkinglot/static/img/icon/component.png' class='index-logo' style='height:60rpx;width:60rpx;'></image>
       <text style='font-size: 16px;'>办理月卡</text>
     </view>

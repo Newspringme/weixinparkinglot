@@ -319,7 +319,7 @@ Page({
             console.log( that.data.loginPhone,
               that.data.loginPassword)
             wx.request({
-              url:  'http://127.0.0.1:8080/parkinglot/UserController/userLogin',
+              url:  'http://39.102.35.36:8080/parkinglot/UserController/userLogin',
               data: {
                 // code: res.code,
                 // head_img: that.data.head_img,
@@ -364,7 +364,7 @@ Page({
                     console.log('ffff'+wx.getStorageSync('userTel'));
 
                     wx.request({
-                      url: 'http://localhost:8080/parkinglot/queryCarNum',
+                      url: 'http://39.102.35.36:8080/parkinglot/queryCarNum',
                       method: 'GET',
                       data: {
                         userTel:that.data.loginPhone
@@ -464,7 +464,7 @@ Page({
             console.log(  that.data.phone,
               that.data.password)
             wx.request({
-              url: 'http://127.0.0.1:8080/parkinglot/UserController/userAdd',
+              url: 'http://39.102.35.36:8080/parkinglot/UserController/userAdd',
               data: {
                 // code: res.code,
                 // head_img: that.data.head_img,

@@ -1,6 +1,5 @@
 Page({
   data: {
-    
     list: ['🎉“智能停车', '🎉Parkinglot上线', '敬请期待'],
     indicatorDots: true,
     autoplay: true,
@@ -26,7 +25,24 @@ Page({
         url: '../login/login',
       })
     }
-    
+    // 建立连接
+    wx.connectSocket({
+      url: 'ws://39.102.35.36:8080/parkinglot/websocket/ip',
+    })
+    //连接成功
+    wx.onSocketOpen(function() {
+      wx.sendSocketMessage({
+        data: 'stock',
+      })
+    })
+    wx.onSocketMessage((result) => {
+      // var msg=result.data.split('endTime')[1];
+      // wx.showToast({
+      //   title: ''+msg,
+      // })
+      console.log(result);
+    })
+
     wx.request({
       url: 'http://39.102.35.36:8080/parkinglot/queryImgUrl',
       data: {
@@ -156,6 +172,11 @@ Page({
       url: '../user/user',
     })
   },
+  toMonthCombo() {
+    wx.navigateTo({
+      url: '../monthCombo/monthCombo',
+    })
+  },
    phoneInput(e) {
     this.setData({
       phoneNo: e.detail.value
@@ -163,22 +184,7 @@ Page({
   },
   makePhoneCall(){
     wx.makePhoneCall({
-      phoneNumber: '12315' 
+      phoneNumber: '13102102150' 
     })
-  },
-  // test0(){
-  //   wx.navigateTo({
-  //     url: '../user/user',
-  //   })
-  // },
-  // test1(){
-  //   wx.navigateTo({
-  //     url: '../guest/guest',
-  //   })
-  // },
-  // test2() {
-  //   wx.navigateTo({
-  //     url: '../entrance/entrance',
-  //   })
-  // }
+  }
 })

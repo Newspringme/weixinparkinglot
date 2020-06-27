@@ -392,7 +392,7 @@ Page({
             if(that.data.list[0].comboId==0){
               // 已停车且无办卡，查需要缴费多少
               wx.request({
-                url: 'http://localhost:8080/parkinglot/weiXinCarPay',
+                url: 'http://39.102.35.36:8080/parkinglot/weiXinCarPay',
                 method: 'GET',
                 data: {
                   carNum: that.data.plateId1,

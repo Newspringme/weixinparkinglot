@@ -1,0 +1,23 @@
+<!--pages/demo01/demo01.wxml-->
+<view style="margin:200rpx">
+<form bindsubmit="handleRenew">
+<input name="carNum" style="border:1px solid gray" placeholder="请输入车牌号"></input>
+<view style="margin-top:50rpx">
+<text>请选择以下续费时长:</text>
+</view>
+<view style="margin-top:50rpx">
+<radio-group name="addTime">
+<radio value="1">1个月</radio><text>\n</text>
+<radio value="3">3个月</radio><text>\n</text>
+<radio value="6">6个月</radio><text>\n</text>
+<radio value="12">12个月</radio><text>\n</text>
+<radio value="36">36个月</radio><text>\n</text>
+</radio-group>
+</view>
+<view style="margin-top:50rpx">
+<button form-type="submit"  style="color:red">确定</button>
+</view>
+</form>
+</view>
+
+

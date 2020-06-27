@@ -1,0 +1,25 @@
+<!--pages/demo01/demo01.wxml-->
+<!-- text标签相当于span标签是行内元素是不会换行的 -->
+<!-- view相当于div标签是块级元素会换行的 -->
+<view style="margin:200rpx">
+<form bindsubmit="handleCombo">
+<input name="carNum" style="border:1px solid gray"   placeholder="请输入车牌号"></input>
+<view style="margin-top:50rpx">
+<text>请选择以下套餐:</text>
+</view>
+<view style="margin-top:50rpx">
+<radio-group name="comboId">
+<radio value="1">月卡（300/月）</radio><text>\n</text>
+<radio value="2">季卡（800/季）</radio><text>\n</text>
+<radio value="3">半年卡（1500/半年）</radio><text>\n</text>
+<radio value="4">全年卡（3000/年）</radio><text>\n</text>
+<radio value="5">至尊卡（5999/3年）</radio><text>\n</text>
+</radio-group>
+</view>
+<view style="margin-top:50rpx">
+<button form-type="submit"  style="color:red">确定</button>
+</view>
+</form>
+</view>
+
+

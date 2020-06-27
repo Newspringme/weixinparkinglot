@@ -1,0 +1,10 @@
+<!--pages/monthCombo/monthCombo.wxml-->
+<view>
+<button  bindtap="toCar" style="margin-top:200rpx;width:400rpx">车辆绑定</button>
+</view>
+<view>
+<button bindtap="toHandle" style="margin-top:200rpx;width:400rpx">套餐办理</button>
+</view>
+<view>
+<button bindtap="toRenew" style="margin-top:200rpx;width:400rpx">套餐续费</button>
+</view>
