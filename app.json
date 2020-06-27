@@ -14,7 +14,8 @@
     "pages/user/setting/setting",
     "pages/user/setting/password/password",
     "pages/user/expense/expense",
-    "pages/user/expense/record/record"
+    "pages/user/expense/record/record",
+    "pages/outview/tomap/tomap"
   ],
   "window": {
     "backgroundTextStyle": "light",
