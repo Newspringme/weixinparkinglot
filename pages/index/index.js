@@ -146,6 +146,11 @@ Page({
       })
     }
   },
+  toMap(){
+    wx.navigateTo({
+      url: '../outview/tomap/tomap',
+    })
+  },
   toPark() {
     wx.navigateTo({
       url: '../park/park',
