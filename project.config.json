@@ -17,19 +17,19 @@
 		"checkInvalidKey": true,
 		"checkSiteMap": true,
 		"uploadWithSourceMap": true,
-		"compileHotReLoad": false,
 		"babelSetting": {
 			"ignore": [],
 			"disablePlugins": [],
 			"outputPath": ""
 		},
-		"useIsolateContext": true,
 		"useCompilerModule": false,
-		"userConfirmedUseCompilerModuleSwitch": false
+		"userConfirmedUseCompilerModuleSwitch": false,
+		"compileHotReLoad": false,
+		"useIsolateContext": true
 	},
 	"compileType": "miniprogram",
 	"libVersion": "1.6.0",
-	"appid": "wx1a2f0c0f836702b0",
+	"appid": "wxa040674268427cbd",
 	"projectname": "%E5%8D%8E%E4%BA%91%E6%99%BA%E6%85%A7%E5%9B%AD%E5%8C%BA",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},

@@ -1,13 +1,10 @@
 <view class='profile'>
-  <view class='avatar'>
-  <image src='{{head_img}}' style='height: 200rpx; width: 200rpx;border-radius: 50%;' mode='scaleToFill'></image>
-  </view>
+
   <view class='detail'>
     <view class='name'>{{nickname}}</view>
     <!-- <view class='desc'>简介</view> -->
   </view>
 </view>
-
 
 <view class='form' bindtap='center'>
  <view class='form-item'>

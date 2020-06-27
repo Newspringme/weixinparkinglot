@@ -592,5 +592,11 @@ Page({
         }
       }
     })
-  }
+  },
+  pay () {
+    wx.setStorageSync('url', 'https://www.baidu.com/')
+     wx.navigateTo({
+        url:'../park/pay/pay' 
+     })
+    }
 })

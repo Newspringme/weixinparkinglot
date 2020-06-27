@@ -10,36 +10,37 @@ Page({
     list: ['男','女'],
     name: '',
     age: 0,
-    phoneNo: ''
+    phoneNo: '',
+    sex:'',
+    userId:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  // onLoad: function (options) {
-  //   var that = this;
-  // // wx.request({
+  onLoad: function (options) {
+    var that = this;
+  wx.request({
     
-  // //   url: 'https://localhost:8080/parkinglot/queryCode',
-  // //   data: {
-    
-  // //   },
-  // //   method: 'GET',
-  // //   success(res){
-  // //     console.log(res.data)
-  // //     let list = [];
-  // //     list.push("必填")
-  // //     for (let i=0; i<res.data.length; i++) {
-  // //       console.log(res.data[i].value)
-  // //       list.push(res.data[i].value)
-  // //     }
-  // //     console.log(list)
-  // //     that.setData ({
-  // //         list: list
-  // //     })
-  // //   }
-  // // })
-  // },
+    url: 'http://localhost:8080/parkinglot/queryUserbyUserTel',
+    data: {
+    userTel:wx.getStorageSync('userTel')
+    },
+    method: 'GET',
+    success(res){
+      console.log(res.data)
+     that.setData({
+       userId:res.data.userId,
+       age:res.data.userAge,
+       name:res.data.userName,
+       sex:res.data.userSex,
+       phoneNo:res.data.userTel
+     })
+       
+     
+    }
+  })
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -90,8 +91,15 @@ Page({
   
   },
   bindPickerChange(e) {
+    var that = this;
+    console.log("index="+e.detail.value)
+    console.log("sex="+that.data.list);
+    console.log("sex="+that.data.list[e.detail.value]);
+    console.log(8888888888);
     this.setData({
-      index: e.detail.value
+      index: e.detail.value,
+      sex:that.data.list[e.detail.value]
+      
     })
   },
   // textareaInput(e) {
@@ -158,29 +166,31 @@ Page({
      console.log("age="+that.data.age);
      console.log("phone="+that.data.phoneNo);
      console.log("index="+that.data.list[that.data.index]);
-      // wx.request({
-      //   url: 'https://localhost/parkinglot/sumbitFeedback',
-      //   data: {
-      //     content: that.data.content,
-      //     feedbackType: that.data.index - 1,
-      //     phoneNo:that.data.phoneNo
-      //   },
-      //   method: 'GET',
-      //   success(res) {
-      //     if(res == "提交成功"){
-      //       wx.showToast({
-      //         title: '提交成功',
-      //         duration: 2000,
-      //         icon: 'success'
-      //       })
-      //       setTimeout(function(){
-      //         wx.navigateBack({
-      //           url: '../../user/user',
-      //         })
-      //       }.bind(this), 2000)
-      //     }
-      //   }
-      // })
+      wx.request({
+        url: 'http://localhost:8080/parkinglot/sumbitUserdata',
+        data: {
+          userName: that.data.name,
+          userAge: that.data.age,
+          userTel:that.data.phoneNo,
+          userId:that.data.userId,
+          userSex:that.data.sex
+        },
+        method: 'GET',
+        success(res) {
+          if(res.data == "提交成功"){
+            wx.showToast({
+              title: '提交成功',
+              duration: 2000,
+              icon: 'success'
+            })
+            setTimeout(function(){
+              wx.navigateBack({
+                url: '../../user/user',
+              })
+            }.bind(this), 2000)
+          }
+        }
+      })
     }
   }
   

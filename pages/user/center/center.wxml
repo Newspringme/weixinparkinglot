@@ -8,26 +8,26 @@
 <view class='character' style='color: #C0C0C0;'>{{characterNum}}/140</view>
 <view class='contact'>
 <view class='contact-title' >昵称</view>
-<view class='contact-input'><input placeholder='必填' placeholder-style='color: lightgray;' bindinput='nameInput'></input></view>
+<view class='contact-input'><input placeholder='必填' placeholder-style='color: lightgray;' bindinput='nameInput' value="{{name}}"></input></view>
 
 </view>
 <view class='category'>
   <picker bindchange="bindPickerChange" value="{{index}}" range="{{list}}">
     <view class='picker'>
       <view class='picker-title'>性别</view>
-      <view class='picker-content'>{{list[index]}}</view>
+      <view class='picker-content'>{{sex}}</view>
       <view class="navigator-arrow" style='margin-left: 40rpx;'></view>
     </view>
   </picker>
 </view>
 <view class='contact'>
 <view class='contact-title' >年龄</view>
-<view class='contact-input'><input placeholder='选填' placeholder-style='color: lightgray;' bindinput='ageInput'></input></view>
+<view class='contact-input'><input placeholder='选填' placeholder-style='color: lightgray;' bindinput='ageInput' value="{{age}}"></input></view>
 
 </view>
 <view class="contact">
 <view class='contact-title'>联系电话</view>
-<view class='contact-input'><input placeholder='必填' placeholder-style='color: lightgray;' bindinput='phoneInput'></input></view>
+<view class='contact-input'><input placeholder='必填' placeholder-style='color: lightgray;' bindinput='phoneInput' value="{{phoneNo}}"></input></view>
  </view>
 <view class='button' bindtap='submit'>提交
 </view>
