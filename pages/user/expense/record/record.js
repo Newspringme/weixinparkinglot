@@ -26,7 +26,7 @@ Page({
 
       // 根据订单编号查账单信息
       wx.request({
-        url: 'http://localhost:8080/parkinglot/queryBilldetails',
+        url: 'http://39.102.35.36:8080/parkinglot/queryBilldetails',
         method: 'GET',
         data: {
           billNum: options.billNum,
