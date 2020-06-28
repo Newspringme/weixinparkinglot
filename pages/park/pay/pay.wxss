@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 .status {
   width: 100%;
   height: 80rpx;
@@ -160,11 +157,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-=======
-=======
->>>>>>> dome
-=======
->>>>>>> dome
+}
+
 /* pages/pay/pay.wxss */
 page {
   min-height: 100%;
@@ -255,11 +249,4 @@ image {
   margin: 60rpx auto;
   margin-bottom: 30rpx;
   text-align: center;
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> dome
-=======
->>>>>>> dome
-=======
->>>>>>> dome
 }
