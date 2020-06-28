@@ -10,7 +10,8 @@ Page({
     billTime: '',
     billMoney: '',
     comboName: '',
-    carNum: ''
+    carNum: '',
+    billType: ''
   },
 
   /**
@@ -25,7 +26,7 @@ Page({
 
       // 根据订单编号查账单信息
       wx.request({
-        url: 'http://39.102.35.36:8080/parkinglot/queryBilldetails',
+        url: 'http://localhost:8080/parkinglot/queryBilldetails',
         method: 'GET',
         data: {
           billNum: options.billNum,
@@ -38,6 +39,7 @@ Page({
             billTime: res.data.billTime,
             billMoney: res.data.billMoney,
             comboName: res.data.comboName,
+            billType: res.data.billType
           })
         }
       })

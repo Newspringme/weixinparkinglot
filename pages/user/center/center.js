@@ -24,7 +24,7 @@ Page({
     let userTel = wx.getStorageSync('userTel');
   wx.request({
   
-    url: 'http://localhost:8080/parkinglot/queryUserbyUserTel',
+    url: 'http://39.102.35.36:8080/parkinglot/queryUserbyUserTel',
     data: {
       userTel: userTel
     },
@@ -163,7 +163,7 @@ Page({
      console.log("index="+that.data.index);
      console.log("sex="+that.data.sex);
       wx.request({
-        url: 'http://localhost:8080/parkinglot/sumbitUserdata',
+        url: 'http://39.102.35.36:8080/parkinglot/sumbitUserdata',
         data: {
           userId: that.data.userId,
           userName: that.data.name,

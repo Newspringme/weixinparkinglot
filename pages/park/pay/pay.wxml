@@ -2,8 +2,4 @@
 
 <view>
 	<web-view src="{{webUrl}}" bindmessage="msgHandler"/>
-<<<<<<< HEAD
 </view>
-=======
-</view>
->>>>>>> dome

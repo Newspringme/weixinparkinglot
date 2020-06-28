@@ -8,4 +8,5 @@
     <text class='comboName'>消费事项：{{comboName}}\n</text>
     <text class='billTime'>账单时间：{{billTime}}\n</text>
     <text class='billMoney'> 金额：{{billMoney}}元\n</text>
+    <text class='billMoney'> 交易状态：{{billType}}</text>
 </view>

@@ -17,17 +17,10 @@ Page({
     console.log(options.type)
 
     this.setData({
-<<<<<<< HEAD
       // webUrl: 'www.baidu.com'
       webUrl: 'http://39.102.35.36:8080/parkinglot/alipay?carNum='+options.carNum+'&type='+options.type
     })
     console.log(this.data.webUrl)
-=======
-      webUrl: 'www.baidu.com'
-      // webUrl: 'http://localhost:8080/parkinglot/alipay?carNum='+options.carNum+'&type='+options.type
-    })
-
->>>>>>> dome
   },
 
   /**
