@@ -121,51 +121,12 @@ Page({
     })
   },
   toEntrance() {
-    if (this.data.status == 1 || this.data.status == 2) {
-      wx.showToast({
-        title: '未审核',
-        icon: 'loading',
-        duration: 2000,
-        mask: true,
-      })
-    } else {
-      wx.navigateTo({
-        url: '../entrance/entrance',
-      })
-    }
-  },
-  toGuest() {
-    if (this.data.status == 1 || this.data.status == 2) {
-      wx.showToast({
-        title: '未审核',
-        icon: 'loading',
-        duration: 2000,
-        mask: true,
-      })
-    } else {
-      wx.navigateTo({
-        url: '../guest/guestdetail/guestdetail',
-      })
-    }
-  },
-  toGroup() {
-    if (this.data.status == 1 || this.data.status == 2) {
-      wx.showToast({
-        title: '未审核',
-        icon: 'loading',
-        duration: 2000,
-        mask: true,
-      })
-    } else {
-      wx.navigateTo({
-        url: '../group/group',
-      })
-    }
-  },
-  toMap(){
     wx.navigateTo({
       url: '../outview/tomap/tomap',
     })
+  },
+  toMap(){
+    
   },
   toPark() {
     wx.navigateTo({

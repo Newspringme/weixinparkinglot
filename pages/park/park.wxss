@@ -158,3 +158,17 @@
   align-items: center;
   justify-content: center;
 }
+
+.rule {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 30rpx;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  width: 90%;
+  margin: auto auto;
+  border-bottom: 1px solid gainsboro;
+
+
+  }
+  

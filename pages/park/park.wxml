@@ -3,8 +3,11 @@
   空车位总数
   <view class='num'>{{num}}</view>
 </view>
-<view style="font-size: 32rpx;">
-    <text>菜鸡停车收费规则：\n</text>
+<view class='coupon' style="margin:auto auto ;color: #2682D7;font-size:20px">
+  <label>菜鸡停车收费规则：</label>
+</view>
+
+<view class="rule">
     <text>半小时以内：免费\n</text>
     <text class='money'> 以后每小时：{{money}}元\n</text>
     <text class='maxmoney'>每天最高收费：{{maxmoney}}元\n</text>
