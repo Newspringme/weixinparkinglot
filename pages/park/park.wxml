@@ -83,13 +83,5 @@
 </view>
 <!-- 缴费 -->
 <view class='button'>
-<<<<<<< HEAD
-<<<<<<< HEAD
-  <button bindtap="pay">缴费</button>
-=======
   <button bindtap='pay'>缴费</button>
->>>>>>> dome
-=======
-  <button bindtap='pay'>缴费</button>
->>>>>>> dome
 </view>

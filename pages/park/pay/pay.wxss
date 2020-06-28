@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 .status {
   width: 100%;
   height: 80rpx;
@@ -162,6 +163,8 @@
 =======
 =======
 >>>>>>> dome
+=======
+>>>>>>> dome
 /* pages/pay/pay.wxss */
 page {
   min-height: 100%;
@@ -253,6 +256,9 @@ image {
   margin-bottom: 30rpx;
   text-align: center;
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> dome
+=======
 >>>>>>> dome
 =======
 >>>>>>> dome

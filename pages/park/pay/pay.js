@@ -1,6 +1,12 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 Page({
+=======
+
+Page({
+
+>>>>>>> dome
 =======
 
 Page({
@@ -17,7 +23,11 @@ Page({
   data: {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
    url:''
+=======
+    webUrl:''
+>>>>>>> dome
 =======
     webUrl:''
 >>>>>>> dome
@@ -30,6 +40,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     var that = this;
@@ -92,6 +103,8 @@ Page({
 =======
 =======
 >>>>>>> dome
+=======
+>>>>>>> dome
     console.log("跳转支付界面")
     console.log(options.carNum)
     console.log(options.type)
@@ -100,6 +113,9 @@ Page({
       webUrl: 'www.baidu.com'
       // webUrl: 'http://localhost:8080/parkinglot/alipay?carNum='+options.carNum+'&type='+options.type
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> dome
+=======
 >>>>>>> dome
 =======
 >>>>>>> dome
@@ -134,7 +150,13 @@ Page({
   onUnload: function () {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+    wx.reLaunch({
+      url: '/pages/index/index'
+    })
+>>>>>>> dome
 =======
     wx.reLaunch({
       url: '/pages/index/index'
@@ -153,7 +175,11 @@ Page({
   onPullDownRefresh: function () {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+    this.onLoad()
+>>>>>>> dome
 =======
     this.onLoad()
 >>>>>>> dome
@@ -176,8 +202,12 @@ Page({
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   },
 
+=======
+  }
+>>>>>>> dome
 =======
   }
 >>>>>>> dome

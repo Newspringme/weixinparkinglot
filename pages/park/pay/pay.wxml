@@ -1,7 +1,10 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <web-view src="http://39.102.35.36:8080/parkinglot/alipay?type=car&carNum=京A00001"></web-view>
 =======
+=======
+>>>>>>> dome
 =======
 >>>>>>> dome
 <!--pages/pay/pay.wxml-->
@@ -9,6 +12,10 @@
 <view>
 	<web-view src="{{webUrl}}" bindmessage="msgHandler"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
+</view>
+>>>>>>> dome
+=======
 </view>
 >>>>>>> dome
 =======
