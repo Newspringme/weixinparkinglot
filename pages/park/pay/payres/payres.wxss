@@ -1,0 +1,37 @@
+.yespay{
+  margin-top: 50rpx;
+  text-align: center; 
+}
+
+.yespay image{
+  width: 200rpx;
+  height: 200rpx;
+}
+
+.yespay text{
+  color: red;
+}
+.yespay{
+  margin-top: 150rpx;
+}
+
+.yespay .backbtn .van-button--round {
+  border-radius: var(--button-round-border-radius,999px);
+  margin-top: 200rpx;
+  background-color: #4dda31;
+  color: white;
+  
+  }
+  
+
+.nopay{
+    margin-top: 50rpx;
+
+  color: red;
+  text-align: center;
+}
+
+.nopay image{
+  width: 200rpx;
+  height: 200rpx;
+}

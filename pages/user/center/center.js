@@ -13,6 +13,10 @@ Page({
     phoneNo: '',
     sex:'',
     userId:''
+<<<<<<< HEAD
+=======
+   
+>>>>>>> dome
   },
 
   /**
@@ -20,6 +24,7 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
+<<<<<<< HEAD
   wx.request({
     
     url: 'http://localhost:8080/parkinglot/queryUserbyUserTel',
@@ -38,6 +43,25 @@ Page({
      })
        
      
+=======
+    let userTel = wx.getStorageSync('userTel');
+  wx.request({
+  
+    url: 'http://localhost:8080/parkinglot/queryUserbyUserTel',
+    data: {
+      userTel: userTel
+    },
+    method: 'GET',
+    success(res){
+     console.log(res.data.userName)
+      that.setData ({
+        userId:res.data.userId,
+          name:res.data.userName,
+          age:res.data.userAge,
+          phoneNo:res.data.userTel,
+          sex:res.data.userSex
+      })
+>>>>>>> dome
     }
   })
   },
@@ -92,6 +116,7 @@ Page({
   },
   bindPickerChange(e) {
     var that = this;
+<<<<<<< HEAD
     console.log("index="+e.detail.value)
     console.log("sex="+that.data.list);
     console.log("sex="+that.data.list[e.detail.value]);
@@ -100,6 +125,11 @@ Page({
       index: e.detail.value,
       sex:that.data.list[e.detail.value]
       
+=======
+    this.setData({
+      index: e.detail.value,
+      sex:that.data.list[that.data.index]
+>>>>>>> dome
     })
   },
   // textareaInput(e) {
@@ -165,6 +195,7 @@ Page({
      console.log("name="+that.data.name);
      console.log("age="+that.data.age);
      console.log("phone="+that.data.phoneNo);
+<<<<<<< HEAD
      console.log("index="+that.data.list[that.data.index]);
       wx.request({
         url: 'http://localhost:8080/parkinglot/sumbitUserdata',
@@ -174,6 +205,18 @@ Page({
           userTel:that.data.phoneNo,
           userId:that.data.userId,
           userSex:that.data.sex
+=======
+     console.log("index="+that.data.index);
+     console.log("sex="+that.data.sex);
+      wx.request({
+        url: 'http://localhost:8080/parkinglot/sumbitUserdata',
+        data: {
+          userId: that.data.userId,
+          userName: that.data.name,
+          userAge: that.data.age,
+          userTel: that.data.phoneNo,
+          userSex: that.data.sex
+>>>>>>> dome
         },
         method: 'GET',
         success(res) {
@@ -193,5 +236,6 @@ Page({
       })
     }
   }
+
   
 })

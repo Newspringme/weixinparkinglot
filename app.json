@@ -8,6 +8,8 @@
     "pages/handleRenew/handleRenew",
     "pages/handlePackage/handlePackage",
     "pages/park/park",
+    "pages/park/pay/pay",
+    "pages/park/pay/payres/payres",
     "pages/user/user",
     "pages/user/feedback/feedback",
     "pages/user/center/center",

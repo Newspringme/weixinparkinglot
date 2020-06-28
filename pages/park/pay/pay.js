@@ -1,15 +1,26 @@
+<<<<<<< HEAD
 Page({
+=======
+
+Page({
+
+>>>>>>> dome
   /**
    * 页面的初始数据
    */
   data: {
+<<<<<<< HEAD
    url:''
+=======
+    webUrl:''
+>>>>>>> dome
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+<<<<<<< HEAD
     var that = this;
     let url = wx.getStorageSync('url');
     console.log("url="+url);
@@ -67,6 +78,15 @@ Page({
           maxmoney: res.data.ratesMaxprice
         })
       }
+=======
+    console.log("跳转支付界面")
+    console.log(options.carNum)
+    console.log(options.type)
+
+    this.setData({
+      webUrl: 'www.baidu.com'
+      // webUrl: 'http://localhost:8080/parkinglot/alipay?carNum='+options.carNum+'&type='+options.type
+>>>>>>> dome
     })
 
   },
@@ -96,14 +116,24 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
+<<<<<<< HEAD
 
+=======
+    wx.reLaunch({
+      url: '/pages/index/index'
+    })
+>>>>>>> dome
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
+<<<<<<< HEAD
 
+=======
+    this.onLoad()
+>>>>>>> dome
   },
 
   /**
@@ -118,6 +148,10 @@ Page({
    */
   onShareAppMessage: function () {
 
+<<<<<<< HEAD
   },
 
+=======
+  }
+>>>>>>> dome
 })

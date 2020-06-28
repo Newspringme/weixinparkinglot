@@ -593,10 +593,11 @@ Page({
       }
     })
   },
-  pay () {
-    wx.setStorageSync('url', 'https://www.baidu.com/')
-     wx.navigateTo({
-        url:'../park/pay/pay' 
-     })
-    }
+  pay(){
+    var that=this;
+    wx.navigateTo({
+      url: '../park/pay/pay?type=car&carNum='+that.data.carNum,
+    })
+   
+  }
 })

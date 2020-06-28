@@ -1,0 +1,15 @@
+
+
+
+<view wx:if="{{type==1}}" class="yespay">
+	<image src='/imgs/yespay.png'></image>
+	<view>支付成功</view>
+
+		<van-button class="backbtn" round bindtap="backhome">返回首页</van-button>
+</view>
+
+<view wx:if="{{type==0}}" class="nopay">
+	<image src='/img/nopay.png'></image>
+	<view>很抱歉未支付</view>
+
+</view>
