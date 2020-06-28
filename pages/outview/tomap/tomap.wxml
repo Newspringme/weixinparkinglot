@@ -1,2 +1,2 @@
 <!--pages/outview/tomap/tomap.wxml-->
-<web-view src="https://39.102.35.36:8080/parkinglot/pages/parkinglot_map.jsp"></web-view>
+<web-view src="http://localhost:8080/parkinglot/pages/parkinglot_map.jsp"></web-view>
