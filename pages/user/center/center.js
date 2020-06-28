@@ -14,6 +14,10 @@ Page({
     sex:'',
     userId:''
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+   
+>>>>>>> dome
 =======
    
 >>>>>>> dome
@@ -24,6 +28,7 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
+<<<<<<< HEAD
 <<<<<<< HEAD
   wx.request({
     
@@ -44,6 +49,8 @@ Page({
        
      
 =======
+=======
+>>>>>>> dome
     let userTel = wx.getStorageSync('userTel');
   wx.request({
   
@@ -61,6 +68,9 @@ Page({
           phoneNo:res.data.userTel,
           sex:res.data.userSex
       })
+<<<<<<< HEAD
+>>>>>>> dome
+=======
 >>>>>>> dome
     }
   })
@@ -117,6 +127,7 @@ Page({
   bindPickerChange(e) {
     var that = this;
 <<<<<<< HEAD
+<<<<<<< HEAD
     console.log("index="+e.detail.value)
     console.log("sex="+that.data.list);
     console.log("sex="+that.data.list[e.detail.value]);
@@ -125,6 +136,11 @@ Page({
       index: e.detail.value,
       sex:that.data.list[e.detail.value]
       
+=======
+    this.setData({
+      index: e.detail.value,
+      sex:that.data.list[that.data.index]
+>>>>>>> dome
 =======
     this.setData({
       index: e.detail.value,
@@ -196,6 +212,7 @@ Page({
      console.log("age="+that.data.age);
      console.log("phone="+that.data.phoneNo);
 <<<<<<< HEAD
+<<<<<<< HEAD
      console.log("index="+that.data.list[that.data.index]);
       wx.request({
         url: 'http://localhost:8080/parkinglot/sumbitUserdata',
@@ -206,6 +223,8 @@ Page({
           userId:that.data.userId,
           userSex:that.data.sex
 =======
+=======
+>>>>>>> dome
      console.log("index="+that.data.index);
      console.log("sex="+that.data.sex);
       wx.request({
@@ -216,6 +235,9 @@ Page({
           userAge: that.data.age,
           userTel: that.data.phoneNo,
           userSex: that.data.sex
+<<<<<<< HEAD
+>>>>>>> dome
+=======
 >>>>>>> dome
         },
         method: 'GET',
