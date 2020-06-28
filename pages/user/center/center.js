@@ -13,18 +13,7 @@ Page({
     phoneNo: '',
     sex:'',
     userId:''
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
    
->>>>>>> dome
-=======
-   
->>>>>>> dome
-=======
-   
->>>>>>> dome
   },
 
   /**
@@ -32,32 +21,6 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-  wx.request({
-    
-    url: 'http://localhost:8080/parkinglot/queryUserbyUserTel',
-    data: {
-    userTel:wx.getStorageSync('userTel')
-    },
-    method: 'GET',
-    success(res){
-      console.log(res.data)
-     that.setData({
-       userId:res.data.userId,
-       age:res.data.userAge,
-       name:res.data.userName,
-       sex:res.data.userSex,
-       phoneNo:res.data.userTel
-     })
-       
-     
-=======
-=======
->>>>>>> dome
-=======
->>>>>>> dome
     let userTel = wx.getStorageSync('userTel');
   wx.request({
   
@@ -75,13 +38,6 @@ Page({
           phoneNo:res.data.userTel,
           sex:res.data.userSex
       })
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> dome
-=======
->>>>>>> dome
-=======
->>>>>>> dome
     }
   })
   },
@@ -136,32 +92,9 @@ Page({
   },
   bindPickerChange(e) {
     var that = this;
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    console.log("index="+e.detail.value)
-    console.log("sex="+that.data.list);
-    console.log("sex="+that.data.list[e.detail.value]);
-    console.log(8888888888);
-    this.setData({
-      index: e.detail.value,
-      sex:that.data.list[e.detail.value]
-      
-=======
     this.setData({
       index: e.detail.value,
       sex:that.data.list[that.data.index]
->>>>>>> dome
-=======
-    this.setData({
-      index: e.detail.value,
-      sex:that.data.list[that.data.index]
->>>>>>> dome
-=======
-    this.setData({
-      index: e.detail.value,
-      sex:that.data.list[that.data.index]
->>>>>>> dome
     })
   },
   // textareaInput(e) {
@@ -227,23 +160,6 @@ Page({
      console.log("name="+that.data.name);
      console.log("age="+that.data.age);
      console.log("phone="+that.data.phoneNo);
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-     console.log("index="+that.data.list[that.data.index]);
-      wx.request({
-        url: 'http://localhost:8080/parkinglot/sumbitUserdata',
-        data: {
-          userName: that.data.name,
-          userAge: that.data.age,
-          userTel:that.data.phoneNo,
-          userId:that.data.userId,
-          userSex:that.data.sex
-=======
-=======
->>>>>>> dome
-=======
->>>>>>> dome
      console.log("index="+that.data.index);
      console.log("sex="+that.data.sex);
       wx.request({
@@ -254,13 +170,6 @@ Page({
           userAge: that.data.age,
           userTel: that.data.phoneNo,
           userSex: that.data.sex
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> dome
-=======
->>>>>>> dome
-=======
->>>>>>> dome
         },
         method: 'GET',
         success(res) {
