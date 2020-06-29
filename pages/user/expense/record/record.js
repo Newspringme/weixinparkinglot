@@ -10,7 +10,8 @@ Page({
     billTime: '',
     billMoney: '',
     comboName: '',
-    carNum: ''
+    carNum: '',
+    billType: ''
   },
 
   /**
@@ -38,6 +39,7 @@ Page({
             billTime: res.data.billTime,
             billMoney: res.data.billMoney,
             comboName: res.data.comboName,
+            billType: res.data.billType
           })
         }
       })

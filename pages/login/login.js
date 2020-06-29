@@ -33,7 +33,8 @@ Page({
       userId: 0,
       userName: '',
       userTel: ''
-    }]
+    }],
+    tbUser:'',
   },
 
   /**
@@ -363,14 +364,36 @@ Page({
                     console.log(that.data.loginPhone);
                     console.log('ffff'+wx.getStorageSync('userTel'));
 
+                    // 登录成功获取用户信息
+                    wx.request({
+                      url: 'http://39.102.35.36:8080/parkinglot/UserController/queryUserName',
+                      method: 'GET',
+                      data: {
+                        userTel:wx.getStorageSync('userTel')
+                      },
+                      success(res) {
+                        console.log(res.data);
+                        if(res.data!=null){
+                          console.log(888888)
+                          wx.setStorageSync('tbUser',res.data);
+                          console.log('ffff'+wx.getStorageSync('tbUser').userName);
+                          that.setData({
+                            tbUser: res.data
+                          })
+                        }
+                      }
+                    })
+                   
+
+                    // 登入成功获取所拥有的车辆信息
                     wx.request({
                       url: 'http://39.102.35.36:8080/parkinglot/queryCarNum',
                       method: 'GET',
                       data: {
-                        userTel:that.data.loginPhone
+                        userTel:wx.getStorageSync('userTel')
                       },
                       success(res) {
-                        console.log(888888)
+                        console.log(55555);
                         console.log(res.data);
                         if(res.data!=null){
                           wx.setStorageSync('carList',res.data);

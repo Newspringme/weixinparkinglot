@@ -1,0 +1,5 @@
+<!--pages/pay/pay.wxml-->
+
+<view>
+	<web-view src="{{webUrl}}" bindmessage="msgHandler"/>
+</view>

@@ -15,6 +15,13 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
+// 获取用户信息
+    that.setData({
+      nickname: wx.getStorageSync('tbUser').userName
+    })
+
+
+
     wx.getUserInfo({
       //如果全局用户信息存在，则直接设置数据
       withCredentials: false,

@@ -592,5 +592,12 @@ Page({
         }
       }
     })
+  },
+  pay(){
+    var that=this;
+    wx.navigateTo({
+      url: '../park/pay/pay?type=car&carNum='+that.data.carNum,
+    })
+   
   }
 })
