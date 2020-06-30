@@ -1,6 +1,6 @@
 <view class='profile'>
   <view class='form-item-image'>
-    <image src='http://39.102.35.36:8080/parkinglot/static/img/icon/history.png' style='height: 60rpx;width: 60rpx;'></image>
+    <image src='http://localhost/parkinglot/static/img/icon/history.png' style='height: 60rpx;width: 60rpx;'></image>
   </view>
   <view class='detail'>
     <view class='desc'>账单记录</view>

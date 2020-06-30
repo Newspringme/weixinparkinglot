@@ -25,21 +25,21 @@ Page({
         })
       }
     })
-    wx.request({
-      url: 'https://www.zjzlnet.com/zjepeframeworks/zjepeframe_Common/getUserByToken?userId=admin&passWord=0192023a7bbd73250516f069df18b500',
-      data: {
-        token: that.data.token
-      },
-      method: 'GET',
-      success(res) {
-        console.log(res.data.data)
-        // 1代表未审核，0代表已审核
-        that.setData({
-          status: res.data.data
-        })
+    // wx.request({
+    //   url: 'https://www.zjzlnet.com/zjepeframeworks/zjepeframe_Common/getUserByToken?userId=admin&passWord=0192023a7bbd73250516f069df18b500',
+    //   data: {
+    //     token: that.data.token
+    //   },
+    //   method: 'GET',
+    //   success(res) {
+    //     console.log(res.data.data)
+    //     // 1代表未审核，0代表已审核
+    //     that.setData({
+    //       status: res.data.data
+    //     })
 
-      }
-    })
+    //   }
+    // })
 
   },
 
