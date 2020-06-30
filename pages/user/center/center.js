@@ -21,12 +21,13 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-    let userTel = wx.getStorageSync('userTel');
+    let userIfo = wx.getStorageSync('userInfo');
+    console.log(userIfo.userName)
   wx.request({
   
-    url: 'http://39.102.35.36:8080/parkinglot/queryUserbyUserTel',
+    url: 'http://localhost:8080/parkinglot/queryUserbyUserCard',
     data: {
-      userTel: userTel
+      userCard: userIfo.userCard
     },
     method: 'GET',
     success(res){
@@ -163,7 +164,7 @@ Page({
      console.log("index="+that.data.index);
      console.log("sex="+that.data.sex);
       wx.request({
-        url: 'http://39.102.35.36:8080/parkinglot/sumbitUserdata',
+        url: 'http://localhost:8080/parkinglot/sumbitUserdata',
         data: {
           userId: that.data.userId,
           userName: that.data.name,

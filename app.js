@@ -1,34 +1,25 @@
 //app.js
 App({
-  // onLaunch: function () {
-  //   // 展示本地存储能力
-  //   var logs = wx.getStorageSync('logs') || []
-  //   logs.unshift(Date.now())
-  //   wx.setStorageSync('logs', logs)
-
-  //   // 登录
-  //   wx.login({
-  //     success: res => {
-  //       // 发送 res.code 到后台换取 openId, sessionKey, unionId
-  //       if (res.code) {
-  //         //发起网络请求
-  //         wx.request({
-  //           url: 'https://www.zjzlnet.com/login',
-  //           data: {
-              
-  //             code: res.code
-  //           }
-  //         })
-  //       }
-
-  //     }
-  //   })
-
-
-
-
-  // },
-  // globalData: {
-  //   userInfo: null
-  // }
+  isNeedSearch() {
+    var userInfo = wx.getStorageSync("userInfo");
+    console.log("登录user:")
+    console.log(userInfo)
+    if (!userInfo) {
+      console.log("存在用户数据")
+      return true;
+    }
+    return false;
+  },
+ 
+  enterMainPage(flag) {
+    if (flag) {
+      wx.redirectTo({
+        url: '/pages/tologin/tologin',
+      });
+    } else {
+      wx.redirectTo({
+        url: '/pages/index/index',
+      });
+    }
+  },
 })

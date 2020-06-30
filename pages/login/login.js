@@ -414,11 +414,11 @@ Page({
                     //     key: 'userTel',
                     //   }),
                     // })
-                    setTimeout(function () {
-                      wx.navigateBack({
-                        url: '../index/index',
-                      })
-                    }.bind(that), 2000);
+                    // setTimeout(function () {
+                    //   wx.navigateBack({
+                    //     url: '../index/index',
+                    //   })
+                    // }.bind(that), 2000);
                   }
                 // }
               },

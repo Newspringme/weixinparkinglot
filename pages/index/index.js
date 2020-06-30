@@ -19,15 +19,10 @@ Page({
     this.setData({
       btnSize: 0.8 * 0.32 * this.data.windowHeight,
     })
-    const token = wx.getStorageSync('token')
-    if (token == '') {
-      wx.navigateTo({
-        url: '../login/login',
-      })
-    }
+
     // 建立连接
     wx.connectSocket({
-      url: 'ws://39.102.35.36:8080/parkinglot/websocket/ip',
+      url: 'ws://localhost:8080/parkinglot/websocket/ip',
     })
     //连接成功
     wx.onSocketOpen(function() {
@@ -44,7 +39,7 @@ Page({
     })
 
     wx.request({
-      url: 'http://39.102.35.36:8080/parkinglot/queryImgUrl',
+      url: 'http://localhost:8080/parkinglot/queryImgUrl',
       data: {
       
       },

@@ -115,14 +115,14 @@ Page({
     }
     else {
       wx.request({
-        url: 'http://39.102.35.36:8080/parkinglot/sumbitFeedback',
+        url: 'http://localhost:8080/parkinglot/sumbitFeedback',
         data: {
           content: that.data.content,
           phone:that.data.phoneNo
         },
         method: 'GET',
         success(res) {
-          if(res.data.data == "提交成功"){
+          if(res.data == "提交成功"){
             wx.showToast({
               title: '提交成功',
               duration: 2000,

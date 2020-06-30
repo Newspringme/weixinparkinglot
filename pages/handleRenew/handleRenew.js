@@ -11,7 +11,7 @@ Page({
         success(res) {
          if (res.confirm) {
           wx.request({
-            url: 'http://39.102.35.36:8080/parkinglot/CarController/handleRenew',
+            url: 'http://localhost:8080/parkinglot/CarController/handleRenew',
             data: {
               carNum: carNum,
               addTime: addTime

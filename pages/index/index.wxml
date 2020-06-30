@@ -25,30 +25,28 @@
     </swiper>
 
   </view>
-<button class='pop_btn' plain="true"
-open-type='getPhoneNumber' bindgetphonenumber="getPhoneNumber">获取用户手机号</button>
 </view>
 <!-- 首页选项 -->
 <view class='buttons' style='width: {{windowWidth}}px;height: {{0.5*windowHeight}}px;'bindtap="toMap">
   <view class='button-top' style='width: {{windowWidth}}px;height: {{0.25*windowHeight}}px'>
     <view class='button-top-left' bindtap='toEntrance' style='width: {{btnSize}}px;height: {{0.8*btnSize}}px;'>
-      <image src='http://39.102.35.36:8080/parkinglot/static/img/icon/square.png' class='index-logo' style='height:60rpx;width:60rpx;'></image>
+      <image src='http://localhost:8080/parkinglot/static/img/icon/square.png' class='index-logo' style='height:60rpx;width:60rpx;'></image>
       <text style='font-size: 16px;'>查看车位</text>
     </view>
     <view class='button-top-right' style='width: {{btnSize}}px;height: {{0.8*btnSize}}px;' bindtap='toPark'>
-      <image src='http://39.102.35.36:8080/parkinglot/static/img/icon/auto.png' class='index-logo' style='height:70rpx;width:70rpx;'></image>
+      <image src='http://localhost:8080/parkinglot/static/img/icon/auto.png' class='index-logo' style='height:70rpx;width:70rpx;'></image>
       <text style='font-size: 16px;'>停车信息</text>
     </view>
   </view>
 
   <view class='button-bottom' style='width: {{windowWidth}}px;height: {{0.25*windowHeight}}px'>
     <view class='button-bottom-left' bindtap='makePhoneCall' style='width: {{btnSize}}px;height: {{0.8*btnSize}}px;'>
-      <image src='http://39.102.35.36:8080/parkinglot/static/img/icon/icon-test_1.png' class='index-logo' style='height:70rpx;width:70rpx;'></image>
+      <image src='http://localhost:8080/parkinglot/static/img/icon/icon-test_1.png' class='index-logo' style='height:70rpx;width:70rpx;'></image>
       <text style='font-size: 16px;'>联系客服</text>
     </view>
 
     <view class='button-bottom-right' bindtap='toMonthCombo' style='width: {{btnSize}}px;height: {{0.8*btnSize}}px;'>
-      <image src='http://39.102.35.36:8080/parkinglot/static/img/icon/component.png' class='index-logo' style='height:60rpx;width:60rpx;'></image>
+      <image src='http://localhost:8080/parkinglot/static/img/icon/component.png' class='index-logo' style='height:60rpx;width:60rpx;'></image>
       <text style='font-size: 16px;'>办理月卡</text>
     </view>
   </view>
@@ -58,7 +56,7 @@ open-type='getPhoneNumber' bindgetphonenumber="getPhoneNumber">获取用户手�
   <view class='button-center-two' style='height: {{0.9*btnSize}}px;width: {{0.9*btnSize}}px;background-color: #F2F2F2; border-radius: 50%;margin: auto auto;position:relative;  display: flex;flex-direction: column;justify-content: center;align-items: center;'>
     <view class='button-center-three' style='height: {{0.8*btnSize}}px;width: {{0.8*btnSize}}px;background-color: white; border-radius: 50%;margin: auto auto;position:relative;  display: flex;flex-direction: column;justify-content: center;align-items: center;'>
       <view class='button-center-inner' style='height: {{0.7*btnSize}}px;width: {{0.7*btnSize}}px;'>
-        <image src='http://39.102.35.36:8080/parkinglot/static/img/icon/namecard.png' 
+        <image src='http://localhost:8080/parkinglot/static/img/icon/namecard.png' 
         class='index-logo'></image>
         <text>个人中心</text>
       </view>
