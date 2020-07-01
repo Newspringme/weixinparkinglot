@@ -10,7 +10,7 @@ Page({
     };
    
     wx.request({
-      url: 'http://localhost:8080/parkinglot/CarController/addCar',
+      url: 'http://39.102.35.36:8080/parkinglot/CarController/addCar',
       data: {
         msg:tbCar
       },

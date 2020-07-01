@@ -74,7 +74,7 @@ Page({
 
     // 查询空车位
     wx.request({
-      url: 'http://localhost:8080/parkinglot/queryNullPark',
+      url: 'http://39.102.35.36:8080/parkinglot/queryNullPark',
       method: 'GET',
       success(res) {
         // console.log(res.data);
@@ -85,7 +85,7 @@ Page({
     }),
     // 查询计费规则
     wx.request({
-      url: 'http://localhost:8080/parkinglot/AdminController/queryPrice',
+      url: 'http://39.102.35.36:8080/parkinglot/AdminController/queryPrice',
       method: 'GET',
       success(res) {
         that.setData({
@@ -301,7 +301,7 @@ Page({
       return;
     }
     wx.request({
-      url: 'http://localhost:8080/parkinglot/addVehicle',
+      url: 'http://39.102.35.36:8080/parkinglot/addVehicle',
       data: {
         carNum: `${that.data.array[that.data.index]}${that.data.array2[that.data.index2]}${that.data.carNum}`,
         userId: userInfo.userId
@@ -377,7 +377,7 @@ Page({
     });
 // 查询是否停车，需要交费多少
     wx.request({
-        url: 'http://localhost:8080/parkinglot/parkController/queryParkByCarNum',
+        url: 'http://39.102.35.36:8080/parkinglot/parkController/queryParkByCarNum',
         method: 'GET',
         data: {
           searchText: this.data.plateId1,
@@ -392,7 +392,7 @@ Page({
             if(that.data.list[0].comboId==0){
               // 已停车且无办卡，查需要缴费多少
               wx.request({
-                url: 'http://localhost:8080/parkinglot/weiXinCarPay',
+                url: 'http://39.102.35.36:8080/parkinglot/weiXinCarPay',
                 method: 'GET',
                 data: {
                   carNum: that.data.plateId1,
@@ -462,7 +462,7 @@ Page({
     })
     // 查询是否停车，需要交费多少
     wx.request({
-      url: 'http://localhost:8080/parkinglot/parkController/queryParkByCarNum',
+      url: 'http://39.102.35.36:8080/parkinglot/parkController/queryParkByCarNum',
       method: 'GET',
       data: {
         searchText: this.data.plateId2
@@ -477,7 +477,7 @@ Page({
           if(that.data.list[1].comboId==0){
             // 已停车且无办卡，查需要缴费多少
             wx.request({
-              url: 'http://localhost:8080/parkinglot/weiXinCarPay',
+              url: 'http://39.102.35.36:8080/parkinglot/weiXinCarPay',
               method: 'GET',
               data: {
                 carNum: that.data.plateId2,
@@ -544,7 +544,7 @@ Page({
     })
     // 查询是否停车，需要交费多少
     wx.request({
-      url: 'http://localhost:8080/parkinglot/parkController/queryParkByCarNum',
+      url: 'http://39.102.35.36:8080/parkinglot/parkController/queryParkByCarNum',
       method: 'GET',
       data: {
         searchText: this.data.plateId3
@@ -559,7 +559,7 @@ Page({
           if(that.data.list[2].comboId==0){
             // 已停车且无办卡，查需要缴费多少
             wx.request({
-              url: 'http://localhost:8080/parkinglot/weiXinCarPay',
+              url: 'http://39.102.35.36:8080/parkinglot/weiXinCarPay',
               method: 'GET',
               data: {
                 carNum: that.data.plateId3,

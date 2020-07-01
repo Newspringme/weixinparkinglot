@@ -21,7 +21,7 @@ Page({
         success(res) {
          if (res.confirm) {
           wx.request({
-            url: 'http://localhost:8080/parkinglot/CarController/handlePackage',
+            url: 'http://39.102.35.36:8080/parkinglot/CarController/handlePackage',
             data: {
               carNum: carNum,
               comboId: comboId

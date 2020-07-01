@@ -22,7 +22,7 @@ Page({
 
     // 建立连接
     wx.connectSocket({
-      url: 'ws://localhost:8080/parkinglot/websocket/ip',
+      url: 'ws://39.102.35.36:8080/parkinglot/websocket/ip',
     })
     //连接成功
     wx.onSocketOpen(function() {
@@ -39,7 +39,7 @@ Page({
     })
 
     wx.request({
-      url: 'http://localhost:8080/parkinglot/queryImgUrl',
+      url: 'http://39.102.35.36:8080/parkinglot/queryImgUrl',
       data: {
       
       },

@@ -18,7 +18,7 @@ Page({
 
     this.setData({
       // webUrl: 'www.baidu.com'
-      webUrl: 'http://localhost:8080/parkinglot/alipay?carNum='+options.carNum+'&type='+options.type
+      webUrl: 'http://39.102.35.36:8080/parkinglot/alipay?carNum='+options.carNum+'&type='+options.type
     })
     console.log(this.data.webUrl)
   },

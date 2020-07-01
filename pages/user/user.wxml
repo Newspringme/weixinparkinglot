@@ -11,7 +11,7 @@
 <view class='form' bindtap='center'>
  <view class='form-item'>
     <view class='form-item-image'>
-      <image src='http://localhost:8080/parkinglot/static/img/icon/namecard.png' style='height: 60rpx;width: 60rpx;'></image>
+      <image src='http://39.102.35.36:8080/parkinglot/static/img/icon/namecard.png' style='height: 60rpx;width: 60rpx;'></image>
     </view>
     <view class='form-item-title'>个人中心</view>
     <view class="navigator-arrow" style='margin-left: 130rpx;'></view>
@@ -21,7 +21,7 @@
 <view class='form' bindtap='expense'>
  <view class='form-item'>
     <view class='form-item-image'>
-      <image src='http://localhost:8080/parkinglot/static/img/icon/history.png' style='height: 60rpx;width: 60rpx;'></image>
+      <image src='http://39.102.35.36:8080/parkinglot/static/img/icon/history.png' style='height: 60rpx;width: 60rpx;'></image>
     </view>
     <view class='form-item-title'>消费记录</view>
     <view class="navigator-arrow" style='margin-left: 130rpx;'></view>
@@ -31,7 +31,7 @@
 <view class='form' bindtap='toPark'>
  <view class='form-item'>
     <view class='form-item-image'>
-      <image src='http://localhost:8080/parkinglot/static/img/icon/auto.png' style='height: 60rpx;width: 60rpx;'></image>
+      <image src='http://39.102.35.36:8080/parkinglot/static/img/icon/auto.png' style='height: 60rpx;width: 60rpx;'></image>
     </view>
     <view class='form-item-title'>我的车辆</view>
     <view class="navigator-arrow" style='margin-left: 130rpx;'></view>
@@ -41,7 +41,7 @@
 <view class='form' bindtap='toFeedback'>
   <view class='form-item'>
     <view class='form-item-image'>
-      <image src='http://localhost:8080/parkinglot/static/img/icon/icon-test_1.png' style='height: 50rpx;width: 50rpx;'></image>
+      <image src='http://39.102.35.36:8080/parkinglot/static/img/icon/icon-test_1.png' style='height: 50rpx;width: 50rpx;'></image>
     </view>
     <view class='form-item-title'>意见反馈</view>
     <view class="navigator-arrow" style='margin-left: 130rpx;'></view>

@@ -82,7 +82,7 @@ Page({
             wx.getUserInfo({
               success: function (res) {
                 wx.request({
-                  url:'http://localhost:8080/parkinglot/weChatLogin',
+                  url:'http://39.102.35.36:8080/parkinglot/weChatLogin',
                   method: 'POST',
                   header: {
                     'content-type': 'application/x-www-form-urlencoded'
@@ -103,7 +103,7 @@ Page({
 
                   // 登入成功获取所拥有的车辆信息
                   wx.request({
-                    url: 'http://localhost:8080/parkinglot/queryCarNum',
+                    url: 'http://39.102.35.36:8080/parkinglot/queryCarNum',
                     method: 'GET',
                     data: {
                       userCard:res.data.data.userCard
