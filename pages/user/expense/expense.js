@@ -39,7 +39,7 @@ Page({
     console.log(wx.getStorageSync('carList'));
     // 查询金额记录
     wx.request({
-      url: 'http://39.102.35.36:8080/parkinglot/weiXinQueryBill',
+      url: 'http://localhost:8080/parkinglot/weiXinQueryBill',
       method: 'GET',
       data: {
         carList:carList,

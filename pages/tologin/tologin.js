@@ -99,26 +99,6 @@ Page({
                     // const userInfo = res.data.object
                     console.log("登录后----------------用户的信息如下：");
                     console.log(res.data.data);
-                    
-
-                  // 登入成功获取所拥有的车辆信息
-                  wx.request({
-                    url: 'http://39.102.35.36:8080/parkinglot/queryCarNum',
-                    method: 'GET',
-                    data: {
-                      userCard:res.data.data.userCard
-                    },
-                    success(res) {
-                      console.log(55555);
-                      console.log(res.data);
-                      if(res.data!=null){
-                        wx.setStorageSync('carList',res.data);
-                        that.setData({
-                          carList: res.data
-                        })
-                      }
-                    }
-                  })
 
 // 将返回的数据保存到全局的缓冲中，方便其他页面使用
                     wx.setStorage({

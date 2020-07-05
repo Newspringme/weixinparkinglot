@@ -4,7 +4,7 @@
   <view class='num'>{{num}}</view>
 </view>
 <view class='coupon' style="margin:auto auto ;color: #2682D7;font-size:20px">
-  <label>菜鸡停车收费规则：</label>
+  <label>菜鸟停车收费规则：</label>
 </view>
 
 <view class="rule">

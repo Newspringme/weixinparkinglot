@@ -31,6 +31,8 @@ Page({
     index3: 0,
     unbindcar: '',
     list: [{}],
+    paymoney:'',
+    carList:''
   },
 
   /**
@@ -42,6 +44,75 @@ Page({
     that.setData({
       status: status
     });
+    var userInfo = wx.getStorageSync('userInfo');
+    console.log(userInfo);
+  //获取所拥有的车辆信息
+  wx.request({
+    url: 'http://39.102.35.36:8080/parkinglot/queryCarNum',
+    method: 'GET',
+    data: {
+      userCard:userInfo.userCard
+    },
+    success(res) {
+      console.log(55555);
+      console.log(res.data);
+      if(res.data!=null){
+        wx.setStorageSync('carList',res.data);
+        let list = wx.getStorageSync('carList');
+    that.setData({
+      list: list,
+    });
+    console.log(list);
+    if (list.length == 1) {
+      that.setData({
+        plateId1: list[0].carNum
+      })
+    }
+    if (list.length == 2) {
+      that.setData({
+        plateId2: list[1].carNum,
+        plateId1: list[0].carNum,
+      })
+    }
+    if (list.length == 3) {
+      that.setData({
+        plateId3: list[2].carNum,
+        plateId2: list[1].carNum,
+        plateId1: list[0].carNum,
+        button: 'sub'
+      })
+    }
+    that.setData({
+      car: list
+    })
+  
+      }
+    }
+
+  })
+
+    // 查询空车位
+    wx.request({
+      url: 'http://39.102.35.36:8080/parkinglot/queryNullPark',
+      method: 'GET',
+      success(res) {
+        // console.log(res.data);
+        that.setData({
+          num: res.data
+        })
+      }
+    }),
+    // 查询计费规则
+    wx.request({
+      url: 'http://39.102.35.36:8080/parkinglot/AdminController/queryPrice',
+      method: 'GET',
+      success(res) {
+        that.setData({
+          money: res.data.ratesUprice,
+          maxmoney: res.data.ratesMaxprice
+        })
+      }
+    })
 
     // 登录者已绑定车辆
     let list = wx.getStorageSync('carList');
@@ -71,30 +142,6 @@ Page({
     that.setData({
       car: list
     })
-
-    // 查询空车位
-    wx.request({
-      url: 'http://39.102.35.36:8080/parkinglot/queryNullPark',
-      method: 'GET',
-      success(res) {
-        // console.log(res.data);
-        that.setData({
-          num: res.data
-        })
-      }
-    }),
-    // 查询计费规则
-    wx.request({
-      url: 'http://39.102.35.36:8080/parkinglot/AdminController/queryPrice',
-      method: 'GET',
-      success(res) {
-        that.setData({
-          money: res.data.ratesUprice,
-          maxmoney: res.data.ratesMaxprice
-        })
-      }
-    })
-
   },
 
   /**
@@ -231,6 +278,7 @@ Page({
   },
   // 解绑车牌的确定与取消
   subcardinputcancel() {
+    console.log("解绑");
     this.setData({
       inputstate: 1,
       carNum: ''
@@ -384,7 +432,7 @@ Page({
         },
         success(res) {
           console.log(res)
-          if(res.data!='false'){
+          if(res.data!=false){
             that.setData({
               state: '已',
               state2: ''
@@ -402,14 +450,18 @@ Page({
                   console.log('支付金额：')
                   console.log(res.data);
                   var pay = res.data;
+                  wx.setStorageSync('paymoney', res.data)
+                  console.log(wx.getStorageSync('paymoney'));
                   that.setData({
                     fee: pay,
                     state: '已',
-                    state2: ''
+                    state2: '',
                   })
                 }
               })
             }else{
+              wx.setStorageSync('paymoney', 0)
+              console.log(wx.getStorageSync('paymoney'));
               that.setData({
                 fee: '',
                 state: '已',
@@ -469,7 +521,7 @@ Page({
       },
       success(res) {
         console.log(res)
-        if(res.data!='false'){
+        if(res.data!=false){
           that.setData({
             state: '已',
             state2: ''
@@ -487,6 +539,8 @@ Page({
                 console.log('支付金额：')
                 console.log(res.data);
                 var pay = res.data;
+                wx.setStorageSync('paymoney', res.data)
+                console.log(wx.getStorageSync('paymoney'));
                 that.setData({
                   fee: pay,
                   state: '已',
@@ -495,6 +549,8 @@ Page({
               }
             })
           }else{
+            wx.setStorageSync('paymoney', 0)
+            console.log(wx.getStorageSync('paymoney'));
             that.setData({
               fee: '',
               state: '已',
@@ -551,7 +607,7 @@ Page({
       },
       success(res) {
         console.log(res)
-        if(res.data!='false'){
+        if(res.data!=false){
           that.setData({
             state: '已',
             state2: ''
@@ -569,6 +625,8 @@ Page({
                 console.log('支付金额：')
                 console.log(res.data);
                 var pay = res.data;
+                wx.setStorageSync('paymoney', res.data)
+                console.log(wx.getStorageSync('paymoney'));
                 that.setData({
                   fee: pay,
                   state: '已',
@@ -577,6 +635,8 @@ Page({
               }
             })
           }else{
+            wx.setStorageSync('paymoney', 0)
+            console.log(wx.getStorageSync('paymoney'));
             that.setData({
               fee: '',
               state: '已',
@@ -592,12 +652,32 @@ Page({
         }
       }
     })
+
   },
   pay(){
     var that=this;
-    wx.navigateTo({
-      url: '../park/pay/pay?type=car&carNum='+that.data.carNum,
-    })
-   
+    console.log(that.data.fee);
+    console.log(wx.getStorageSync('paymoney'));
+    console.log(that.data.state);
+    console.log(that.data.state=='已')
+    if(that.data.state=='已'){
+      if(wx.getStorageSync('paymoney')==0){
+        wx.showToast({
+          title: '免费停车',
+          duration: 2000,
+          icon: 'success'
+        })
+      }else{
+        wx.navigateTo({
+          url: '../park/pay/pay?type=car&carNum='+that.data.carNum,
+        })
+      }
+    }else{
+      wx.showToast({
+        title: '无需缴费',
+        duration: 22000,
+        icon: 'success'
+      })
+    }
   }
 })
